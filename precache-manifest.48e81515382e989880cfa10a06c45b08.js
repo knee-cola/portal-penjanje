@@ -24,7 +24,7 @@ self.__precacheManifest = [
     "url": "/portal-penjanje/static/css/main.8ff1ee0b.chunk.css"
   },
   {
-    "revision": "cb22bfb77773b512f3df062a7e452aa4",
+    "revision": "814da7a6a0e11d5c685f7d239b6d699b",
     "url": "/portal-penjanje/index.html"
   }
 ];
