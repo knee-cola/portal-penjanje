@@ -28,5 +28,6 @@
   ],
   "devDependencies": {
     "gh-pages": "^2.0.1"
-  }
+  },
+  "homepage": "https://knee-cola.github.io/portal-penjanje/"
 }
