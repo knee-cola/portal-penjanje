@@ -1,16 +1,19 @@
 import React from 'react';
 import { AppDrawer } from "./AppDrawer";
-import { List, ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
-import InboxIcon from '@material-ui/icons/Inbox';
-import MailIcon from '@material-ui/icons/Mail';
+import { List, ListItem, ListItemIcon, ListItemText, Icon } from '@material-ui/core';
 
 export const AppMenu = ({handleDrawerToggle, menuOpen}) =>
 <AppDrawer handleDrawerToggle={handleDrawerToggle} menuOpen={menuOpen}>
     <List>
-      {['Zadnje penjano', 'Smjerovi', 'Moji usponi', 'Moji partneri'].map((text, index) => (
-        <ListItem button key={text}>
-          <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-          <ListItemText primary={text} />
+      {[
+        {label: 'Zadnje penjano', icon:'view_carousel'},
+        {label: 'Smjerovi', icon:'explore'},
+        {label: 'Moji usponi', icon:'chrome_reader_mode'},
+        {label: 'Moji partneri', icon:'people'},
+      ].map(({label, icon}) => (
+        <ListItem button key={label}>
+          <ListItemIcon><Icon>{icon}</Icon></ListItemIcon>
+          <ListItemText primary={label} />
         </ListItem>
       ))}
     </List>
