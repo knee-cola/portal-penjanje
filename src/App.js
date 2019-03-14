@@ -17,6 +17,7 @@ function App(props) {
       <div>
         <NavBar handleDrawerToggle={handleDrawerToggle} />
         <AppMenu handleDrawerToggle={handleDrawerToggle} menuOpen={menuOpen} />
+        <div style={{marginTop:85}}>
         <MediaCard uspon={{
             penjaci:['Dragutin Vdović', 'Nikola Derežić'],
             img: IMG1,
@@ -37,6 +38,7 @@ function App(props) {
                 lokacijaSmjera:'Mala Mojstrovka, Julijske alpe, Slovenija',
               }
             }} />
+        </div>
       </div>
     );
 }; 
