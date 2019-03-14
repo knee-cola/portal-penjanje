@@ -1,20 +1,22 @@
-import React, { Component } from 'react';
-import Button from '@material-ui/core/Button';
-import Bookmarks from '@material-ui/icons/Bookmarks';
+import React from 'react';
 import NavBar from './components/NavBar';
-import { TextField } from '@material-ui/core';
 import MediaCard from './components/Card';
 import IMG1 from './img/velebitas.jpg';
 import IMG2 from './img/grapa.jpg';
-class App extends Component {
-  render() {
-    return (
+import { AppMenu } from './components/AppMenu';
+
+function App(props) {
+
+  const [menuOpen, setMenuOpen] = React.useState(false);
+
+  function handleDrawerToggle() {
+    setMenuOpen(!menuOpen);
+  }
+
+  return (
       <div>
-        <NavBar />
-        <Button variant="outlined" color="primary">
-          <Bookmarks></Bookmarks>
-        </Button> <br />
-        <TextField placeholder="Placeholder here" label="Basic TextField" />
+        <NavBar handleDrawerToggle={handleDrawerToggle} />
+        <AppMenu handleDrawerToggle={handleDrawerToggle} menuOpen={menuOpen} />
         <MediaCard uspon={{
             penjaci:['Dragutin Vdović', 'Nikola Derežić'],
             img: IMG1,
@@ -37,7 +39,6 @@ class App extends Component {
             }} />
       </div>
     );
-  }
-}
+}; 
 
 export default App;
