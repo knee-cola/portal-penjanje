@@ -4,7 +4,7 @@ self.__precacheManifest = [
     "url": "/portal-penjanje/static/media/krcko-spit-bull.d399ee1e.jpg"
   },
   {
-    "revision": "f43911df2146b193e144",
+    "revision": "8b54ebf9029f22f66364",
     "url": "/portal-penjanje/static/css/main.8ff1ee0b.chunk.css"
   },
   {
@@ -24,8 +24,8 @@ self.__precacheManifest = [
     "url": "/portal-penjanje/static/media/grapa.423a722c.jpg"
   },
   {
-    "revision": "f43911df2146b193e144",
-    "url": "/portal-penjanje/static/js/main.44c4c9cd.chunk.js"
+    "revision": "8b54ebf9029f22f66364",
+    "url": "/portal-penjanje/static/js/main.780fbf43.chunk.js"
   },
   {
     "revision": "f87c03b1055a3ffe192a78578152e9cd",
@@ -44,7 +44,7 @@ self.__precacheManifest = [
     "url": "/portal-penjanje/static/media/paklenica-nosorog.08f6dda5.jpg"
   },
   {
-    "revision": "a13a7ff9b76bac4d44439b15a49fef45",
+    "revision": "85ef6ba05abce9230268cfc04ff9c08c",
     "url": "/portal-penjanje/index.html"
   }
 ];
