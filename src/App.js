@@ -15,8 +15,11 @@ function App(props) {
     setMenuOpen(!menuOpen);
   }
 
+  
+  const basename = window.location.hostname === "knee-cola.github.io" ? "/portal-penjanje/" : '';
+
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={basename}>
       <div>
         <NavBar handleDrawerToggle={handleDrawerToggle} />
         <AppMenu handleDrawerToggle={handleDrawerToggle} menuOpen={menuOpen} />
