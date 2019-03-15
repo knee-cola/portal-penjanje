@@ -15,7 +15,7 @@ function App(props) {
     setMenuOpen(!menuOpen);
   }
 
-  
+  // u produkciji se web aplikacija ne nalazi u root path-u
   const basename = window.location.hostname === "knee-cola.github.io" ? "/portal-penjanje/" : '';
 
   return (
