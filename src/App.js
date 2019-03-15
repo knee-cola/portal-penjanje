@@ -1,11 +1,12 @@
 import React from 'react';
+import { BrowserRouter, Route } from 'react-router-dom';
+
 import NavBar from './components/NavBar';
 import { AppMenu } from './components/AppMenu';
-import { ZadnjePenjano } from './activities/ZadnjePenjano';
-import { BrowserRouter, Route } from 'react-router-dom';
-import { MojiUsponi } from './activities/MojiUsponi';
-import { MojiPartneri } from './activities/MojiPartneri';
-import { Smjerovi } from './activities/Smjerovi';
+import { ZadnjePenjano } from './lists/ZadnjePenjano';
+import { MojiUsponi } from './lists/MojiUsponi';
+import { MojiPartneri } from './lists/MojiPartneri';
+import { Smjerovi } from './lists/Smjerovi';
 import { UsponDetails } from './details/UsponDetails';
 import { Grid } from '@material-ui/core';
 
