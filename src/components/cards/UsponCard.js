@@ -29,17 +29,16 @@ function UsponCard(props) {
         <CardMedia
           className={classes.media}
           image= {img}
-          title="Contemplative Reptile"
         />
         <CardContent>
-        <Typography gutterBottom variant="h5" component="h2">
-            {imeSmjera},{ocjenaSmjera}
-        </Typography>
+          <Typography component="p">
+            {datumUspona} {penjaci.join(', ')}
+          </Typography>
+          <Typography gutterBottom variant="h5" component="h2">
+              {imeSmjera}, {ocjenaSmjera}
+          </Typography>
           <Typography component="i">
             {lokacijaSmjera}
-          </Typography>
-          <Typography component="p">
-          {datumUspona} penjali {penjaci.join(', ')}
           </Typography>
         </CardContent>
       </CardActionArea>
