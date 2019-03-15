@@ -19,21 +19,22 @@ Demo je dostupan na adresi https://knee-cola.github.io/portal-penjanje/
         * napomene
         * linkovi na korisničke profile
     * detalji o smjeru
+        * skica smjera
         * info o smjeru
         * popis zadnjih uspona
     * detalji o partneru
         * popis uspona koje je napravio
-        * filter za zajedničke uspone
+            * filter za zajedničke uspone
 * forme
     * dodavanje uspona
         * svi partneri mogu mijenjati zapis o usponu / dodavati fotke
+    * dodavanje partnera
+        * što ako nije korisnik web aplikacije?
+            * kreirati "partner" zapis, koji se naknadno može linkati sa stvarnim profilom
     * dodavanje smjera
         * mogućnost dodavanja suradnika (za vlasnike zapisa)
         * mogućnost predlaganja izmjena (ako nismo vlasnik zapisa)
         * mogućnost objedinjenja duplikata (za poweruser-e)
-    * dodavanje partnera
-        * što ako nije korisnik web aplikacije?
-            * kreirati "partner" zapis, koji se naknadno može linkati sa stvarnim profilom
 * tražilica
     * smjerova
     * partnera
@@ -45,5 +46,6 @@ Demo je dostupan na adresi https://knee-cola.github.io/portal-penjanje/
     * login form
     * logout button
     * korisnički profil
+        * nickname (unique)
         * upload avatara
 

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
+import ImageLightBox from './ImageLightBox';
 
 const styles = theme => ({
   root: {
@@ -22,15 +23,27 @@ const styles = theme => ({
 function ImageGallery(props) {
   const { classes, images } = props;
 
+  const [lightBoxOpen, setLightBoxOpen] = React.useState(false);
+  const [selectedImage, setSelectedImage] = React.useState(false);
+
+  const handleClickOpen = (image) => {
+    setSelectedImage(image);
+    setLightBoxOpen(true);
+  }
+  const handleClickClose = () => {
+    setLightBoxOpen(false);
+  }
+
   return (
     <div className={classes.root}>
       <GridList cellHeight={160} className={classes.gridList} cols={3}>
-        {images.map(tile => (
-          <GridListTile key={tile.img} cols={tile.cols || 1}>
-            <img src={tile.img} alt={tile.title} />
+        {images.map(image => (
+          <GridListTile key={image.file} cols={image.cols || 1} onClick={() => handleClickOpen(image)}>
+            <img src={image.file} alt={image.title} />
           </GridListTile>
         ))}
       </GridList>
+      <ImageLightBox open={lightBoxOpen} onClose={handleClickClose} image={selectedImage} />
     </div>
   );
 }
