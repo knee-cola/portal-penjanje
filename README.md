@@ -11,6 +11,8 @@ Demo je dostupan na adresi https://knee-cola.github.io/portal-penjanje/
 # ToDo
 * formatiranje za desktop
     * https://material-ui.com/demos/grid-list/
+* cards
+    * napraviti da su u stvari linkovi ... a ne button-i koji koriste JavaScript da odu na novi URL
 * stranice sa detaljima
     * detalji o usponu
         * galerija slika

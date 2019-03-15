@@ -21,7 +21,7 @@ const styles = {
 
 function UsponCard(props) {
   
-  const { classes, uspon: { penjaci, img, datumUspona, smjer: { imeSmjera, lokacijaSmjera, ocjenaSmjera } } } = props;
+  const { history, classes, uspon: { id, penjaci, img, datumUspona, smjer: { imeSmjera, lokacijaSmjera, ocjenaSmjera } } } = props;
   const usponUrl = `/usponi/${datumUspona.replace(/\./g,'-').substr(0,10)}/${imeSmjera.toLocaleLowerCase().replace(' ','-')}-${id}/`;
 
   return (
@@ -56,4 +56,4 @@ function UsponCard(props) {
 }
 
 
-export default withStyles(styles)( withRouter(UsponCard) ;
+export default withStyles(styles)( withRouter(UsponCard) ) ;
