@@ -26,7 +26,7 @@ function App(props) {
       <div>
         <NavBar handleDrawerToggle={handleDrawerToggle} />
         <AppMenu handleDrawerToggle={handleDrawerToggle} menuOpen={menuOpen} />
-        <Grid container justify="center" style={{marginTop:65}}>
+        <Grid container justify="center" style={{marginTop:85}}>
           <Grid item>
             <Route path="/" exact component={ZadnjePenjano} />
             <Route path="/usponi/:id/" component={UsponDetails} />
