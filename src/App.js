@@ -1,13 +1,13 @@
 import React from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 
-import NavBar from './components/NavBar';
-import { AppMenu } from './components/AppMenu';
+import NavBar from './navigation/NavBar';
+import { AppMenu } from './navigation/AppMenu';
 import { ZadnjePenjano } from './lists/ZadnjePenjano';
 import { MojiUsponi } from './lists/MojiUsponi';
 import { MojiPartneri } from './lists/MojiPartneri';
 import { Smjerovi } from './lists/Smjerovi';
-import { UsponDetails } from './details/UsponDetails';
+import UsponDetails from './details/UsponDetails';
 import { Grid } from '@material-ui/core';
 
 function App(props) {

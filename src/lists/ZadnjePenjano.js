@@ -1,5 +1,5 @@
 import React from 'react';
-import UsponCard from '../components/cards/UsponCard';
+import UsponCard from '../cards/UsponCard';
 import IMG1 from '../img/velebitas.jpg';
 import IMG2 from '../img/grapa.jpg';
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import PartnerCard from '../components/cards/PartnerCard';
+import PartnerCard from '../cards/PartnerCard';
 import JimboAvatar from '../img/partneri/jimbo.jpg';
 import KrckoAvatar from '../img/partneri/krcko.jpg';
 import SandaAvatar from '../img/partneri/sanda.jpg';

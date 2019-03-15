@@ -1,5 +1,5 @@
 import React from 'react';
-import SmjerCard from '../components/cards/SmjerCard';
+import SmjerCard from '../cards/SmjerCard';
 import PaklenicaBrahm from '../img/smjerovi/paklenica-brahm.jpg';
 import PaklenicaNosorog from '../img/smjerovi/paklenica-nosorog.jpg';
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import MojUsponCard from '../components/cards/MojUsponCard';
+import MojUsponCard from '../cards/MojUsponCard';
 
 import KrckoSpitBull from '../img/usponi/krcko-spit-bull.jpg';
 import SandaBridZaCekic from '../img/usponi/sanda-brid-za-cekic.jpg';
