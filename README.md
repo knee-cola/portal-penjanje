@@ -4,3 +4,6 @@ Web aplikacija koja je istovremeno
 
 # Demo
 Demo je dostupan na adresi https://knee-cola.github.io/portal-penjanje/
+
+# Icons
+* https://thenounproject.com/search/?q=rock%20climbing

@@ -1,9 +1,11 @@
 import React from 'react';
 import NavBar from './components/NavBar';
-import MediaCard from './components/Card';
-import IMG1 from './img/velebitas.jpg';
-import IMG2 from './img/grapa.jpg';
 import { AppMenu } from './components/AppMenu';
+import { ZadnjePenjano } from './activities/ZadnjePenjano';
+import { BrowserRouter, Route } from 'react-router-dom';
+import { MojiUsponi } from './activities/MojiUsponi';
+import { MojiPartneri } from './activities/MojiPartneri';
+import { Smjerovi } from './activities/Smjerovi';
 
 function App(props) {
 
@@ -14,32 +16,18 @@ function App(props) {
   }
 
   return (
+    <BrowserRouter>
       <div>
         <NavBar handleDrawerToggle={handleDrawerToggle} />
         <AppMenu handleDrawerToggle={handleDrawerToggle} menuOpen={menuOpen} />
         <div style={{marginTop:85}}>
-        <MediaCard uspon={{
-            penjaci:['Dragutin Vdović', 'Nikola Derežić'],
-            img: IMG1,
-            datumUspona:'23.03.2019.',
-            smjer:{
-                imeSmjera:'Velebitaš',
-                lokacijaSmjera:'Sjeverna stijena, Anića kuk, Velika Paklenica, Croatia',
-                ocjenaSmjera:'6a+'
-              }
-            }} />
-        <MediaCard uspon={{
-            penjaci:['Rene Lisac', 'Marin Šapit'],
-            img: IMG2,
-            datumUspona:'23.03.2019.',
-            smjer:{
-                imeSmjera:'Pripravniška grapa',
-                ocjenaSmjera:'VI+ / M3',
-                lokacijaSmjera:'Mala Mojstrovka, Julijske alpe, Slovenija',
-              }
-            }} />
+            <Route path="/" exact component={ZadnjePenjano} />
+            <Route path="/smjerovi/" component={Smjerovi} />
+            <Route path="/moji-usponi/" component={MojiUsponi} />
+            <Route path="/moji-partneri/" component={MojiPartneri} />
         </div>
       </div>
+      </BrowserRouter>
     );
 }; 
 

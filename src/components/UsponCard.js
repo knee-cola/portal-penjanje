@@ -19,8 +19,10 @@ const styles = {
   },
 };
 
-function MediaCard(props) {
+function UsponCard(props) {
+  
   const { classes, uspon: { penjaci, img, datumUspona, smjer: { imeSmjera, lokacijaSmjera, ocjenaSmjera } } } = props;
+
   return (
     <Card className={classes.card}>
       <CardActionArea>
@@ -53,8 +55,8 @@ function MediaCard(props) {
   );
 }
 
-MediaCard.propTypes = {
+UsponCard.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(MediaCard);
+export default withStyles(styles)(UsponCard);
