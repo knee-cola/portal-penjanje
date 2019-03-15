@@ -1,10 +1,11 @@
 import React from 'react';
-import UsponCard from '../components/UsponCard';
+import UsponCard from '../components/cards/UsponCard';
 import IMG1 from '../img/velebitas.jpg';
 import IMG2 from '../img/grapa.jpg';
 
 const usponi = [
     {
+        id: 0,
         penjaci:['Dragutin Vdović', 'Nikola Derežić'],
         img: IMG1,
         datumUspona:'23.03.2019.',
@@ -15,6 +16,7 @@ const usponi = [
           }
     },
     {
+        id: 1,
         penjaci:['Rene Lisac', 'Marin Šapit'],
         img: IMG2,
         datumUspona:'23.03.2019.',
@@ -26,4 +28,4 @@ const usponi = [
     }
 ];
 
-export const ZadnjePenjano = () => usponi.map(uspon => <UsponCard uspon={uspon} />);
+export const ZadnjePenjano = () => usponi.map(uspon => <UsponCard uspon={uspon} key={uspon.id} />);

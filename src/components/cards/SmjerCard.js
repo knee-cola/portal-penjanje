@@ -18,21 +18,18 @@ const styles = {
   },
 };
 
-function UsponCard(props) {
+function SmjerCard(props) {
   
-  const { classes, uspon: { penjaci, img, datumUspona, smjer: { imeSmjera, lokacijaSmjera, ocjenaSmjera } } } = props;
+  const { classes, smjer:{imeSmjera, thumb, lokacijaSmjera, ocjenaSmjera} } = props;
 
   return (
     <Card className={classes.card}>
       <CardActionArea>
         <CardMedia
           className={classes.media}
-          image= {img}
+          image= {thumb}
         />
         <CardContent>
-          <Typography component="p">
-            {datumUspona} {penjaci.join(', ')}
-          </Typography>
           <Typography gutterBottom variant="h5" component="h2">
               {imeSmjera}, {ocjenaSmjera}
           </Typography>
@@ -43,15 +40,11 @@ function UsponCard(props) {
       </CardActionArea>
       <CardActions>
         <Button size="small" color="primary">
-          Detalji uspona
-        </Button>
-        <Button size="small" color="primary">
-          Želim to penjati
+          Info o smjeru
         </Button>
       </CardActions>
     </Card>
   );
 }
 
-
-export default withStyles(styles)(UsponCard);
+export default withStyles(styles)(SmjerCard);

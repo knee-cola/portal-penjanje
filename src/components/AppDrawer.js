@@ -1,5 +1,5 @@
 import React from 'react';
-import { Hidden, Drawer } from '@material-ui/core';
+import { Drawer } from '@material-ui/core';
 
 export const AppDrawer = ({menuOpen, handleDrawerToggle, children }) => 
 <nav>
