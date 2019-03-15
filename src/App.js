@@ -7,6 +7,7 @@ import { MojiUsponi } from './activities/MojiUsponi';
 import { MojiPartneri } from './activities/MojiPartneri';
 import { Smjerovi } from './activities/Smjerovi';
 import { UsponDetails } from './details/UsponDetails';
+import { Grid } from '@material-ui/core';
 
 function App(props) {
 
@@ -24,13 +25,15 @@ function App(props) {
       <div>
         <NavBar handleDrawerToggle={handleDrawerToggle} />
         <AppMenu handleDrawerToggle={handleDrawerToggle} menuOpen={menuOpen} />
-        <div style={{marginTop:85}}>
+        <Grid container justify="center" style={{marginTop:65}}>
+          <Grid item>
             <Route path="/" exact component={ZadnjePenjano} />
             <Route path="/usponi/:id/" component={UsponDetails} />
             <Route path="/smjerovi/" component={Smjerovi} />
             <Route path="/moji-usponi/" component={MojiUsponi} />
             <Route path="/moji-partneri/" component={MojiPartneri} />
-        </div>
+          </Grid>
+        </Grid>
       </div>
       </BrowserRouter>
     );
