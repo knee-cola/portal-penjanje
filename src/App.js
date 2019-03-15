@@ -6,6 +6,7 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import { MojiUsponi } from './activities/MojiUsponi';
 import { MojiPartneri } from './activities/MojiPartneri';
 import { Smjerovi } from './activities/Smjerovi';
+import { UsponDetails } from './details/UsponDetails';
 
 function App(props) {
 
@@ -25,6 +26,7 @@ function App(props) {
         <AppMenu handleDrawerToggle={handleDrawerToggle} menuOpen={menuOpen} />
         <div style={{marginTop:85}}>
             <Route path="/" exact component={ZadnjePenjano} />
+            <Route path="/usponi/:id/" component={UsponDetails} />
             <Route path="/smjerovi/" component={Smjerovi} />
             <Route path="/moji-usponi/" component={MojiUsponi} />
             <Route path="/moji-partneri/" component={MojiPartneri} />

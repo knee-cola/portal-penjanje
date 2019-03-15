@@ -7,6 +7,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import { withRouter } from 'react-router-dom';
 
 const styles = {
   card: {
@@ -18,12 +19,14 @@ const styles = {
   },
 };
 
-function MojUsponCard(props) {
+const MojUsponCard = (props) => {
   
-  const { classes, uspon: { img, datumUspona, smjer: { imeSmjera, lokacijaSmjera, ocjenaSmjera } } } = props;
+  const { history, classes, uspon: { id, img, datumUspona, smjer: { imeSmjera, lokacijaSmjera, ocjenaSmjera } } } = props;
+
+  const usponUrl = `/usponi/${datumUspona.replace(/\./g,'-').substr(0,10)}/${imeSmjera.toLocaleLowerCase().replace(' ','-')}-${id}/`;
 
   return (
-    <Card className={classes.card}>
+    <Card className={classes.card} onClick={() => history.push(usponUrl)}>
       <CardActionArea>
         <CardMedia
           className={classes.media}
@@ -51,7 +54,6 @@ function MojUsponCard(props) {
       </CardActions>
     </Card>
   );
-}
+};
 
-
-export default withStyles(styles)(MojUsponCard);
+export default withStyles(styles)(  withRouter(MojUsponCard) );

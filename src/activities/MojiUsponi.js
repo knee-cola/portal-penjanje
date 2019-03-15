@@ -6,6 +6,7 @@ import SandaBridZaCekic from '../img/usponi/sanda-brid-za-cekic.jpg';
 
 const usponi = [
     {
+        id: 1,
         penjaci:['Dragutin Vdović', 'Nikola Derežić'],
         img: KrckoSpitBull,
         datumUspona:'23.03.2019.',
@@ -16,6 +17,7 @@ const usponi = [
           }
     },
     {
+        id: 2,
         penjaci:['Sanda Banović', 'Nikola Derežić'],
         img: SandaBridZaCekic,
         datumUspona:'23.03.2019.',

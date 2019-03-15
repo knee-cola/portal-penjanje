@@ -38,6 +38,8 @@ Demo je dostupan na adresi https://knee-cola.github.io/portal-penjanje/
 * katalog / index
 * korisnička stranica
     * registracija
+        * login samo preko google-a / facebook-a
+        * mogućnost prosljeđivanje postova na FB / Google
     * login form
     * logout button
     * korisnički profil
