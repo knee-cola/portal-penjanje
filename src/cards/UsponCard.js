@@ -1,7 +1,6 @@
 import React, { Fragment } from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
@@ -18,6 +17,7 @@ const styles = {
   media: {
     height: 0,
     paddingTop: '56.25%', // 16:9
+    cursor: 'pointer'
   },
   expand: {
     transform: 'rotate(0deg)',
@@ -56,6 +56,7 @@ function UsponCard(props) {
         subheader={lokacijaSmjera}
       />
       <CardMedia
+        onClick={handleExpandClick}
         className={classes.media}
         image={titleImage}
       />
