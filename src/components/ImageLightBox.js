@@ -23,8 +23,8 @@ const styles = theme => ({
     right: 0,
   },
   image: {
-    height: 'calc(100vh - 96px)',
-    maxWIdth: 'calc(100vw - 96px)'
+    maxHeight: 'calc(100vh - 96px)',
+    maxWidth: 'calc(100vw - 96px)'
   }
 });
 
