@@ -4,16 +4,16 @@ self.__precacheManifest = [
     "url": "/portal-penjanje/static/media/brid-za-veliki-cekic-3.c33d67bc.jpg"
   },
   {
-    "revision": "8686b8ebf301404b03da",
-    "url": "/portal-penjanje/static/css/main.8ff1ee0b.chunk.css"
+    "revision": "ffe0ccfab21653245e4c",
+    "url": "/portal-penjanje/static/css/main.cc986e1a.chunk.css"
   },
   {
     "revision": "2ecf79ffaf5122d7194b",
     "url": "/portal-penjanje/static/js/runtime~main.182d5f93.js"
   },
   {
-    "revision": "b235890b1fa5aae80d7a",
-    "url": "/portal-penjanje/static/js/2.b2f1e80b.chunk.js"
+    "revision": "f697a45adf1e07d02486",
+    "url": "/portal-penjanje/static/js/2.9d47fc78.chunk.js"
   },
   {
     "revision": "a72232f0fa925db5b3c34e666c7070ec",
@@ -32,8 +32,8 @@ self.__precacheManifest = [
     "url": "/portal-penjanje/static/media/brid-za-veliki-cekic-2.4205e35a.jpg"
   },
   {
-    "revision": "8686b8ebf301404b03da",
-    "url": "/portal-penjanje/static/js/main.d16f31ce.chunk.js"
+    "revision": "ffe0ccfab21653245e4c",
+    "url": "/portal-penjanje/static/js/main.94c5af70.chunk.js"
   },
   {
     "revision": "d399ee1edde4e578bab09cd989c64ee9",
@@ -64,7 +64,7 @@ self.__precacheManifest = [
     "url": "/portal-penjanje/static/media/baseline-person-24px.25cabb35.svg"
   },
   {
-    "revision": "73224bcd906ec12a67201a3b60e8e088",
+    "revision": "dfd4a2a8508ae0e6681fd3951a677dad",
     "url": "/portal-penjanje/index.html"
   }
 ];
