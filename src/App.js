@@ -29,7 +29,7 @@ function App(props) {
         <Grid container justify="center" style={{marginTop:65}}>
           <Grid item>
             <Route path="/" exact component={ZadnjePenjano} />
-            <Route path="/usponi/:id/" component={UsponDetails} />
+            <Route path="/usponi/" component={UsponDetails} />
             <Route path="/smjerovi/" component={Smjerovi} />
             <Route path="/moji-usponi/" component={MojiUsponi} />
             <Route path="/moji-partneri/" component={MojiPartneri} />
