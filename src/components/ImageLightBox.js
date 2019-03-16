@@ -24,7 +24,7 @@ const styles = theme => ({
   },
   image: {
     maxHeight: 'calc(100vh - 96px)',
-    maxWidth: 'calc(100vw - 96px)'
+    maxWidth: 'calc(100vw - 10px)'
   }
 });
 
