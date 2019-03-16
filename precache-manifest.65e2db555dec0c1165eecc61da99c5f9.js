@@ -4,7 +4,7 @@ self.__precacheManifest = [
     "url": "/portal-penjanje/static/media/baseline-person-24px.25cabb35.svg"
   },
   {
-    "revision": "13350cf4997333c59bf0",
+    "revision": "4237a7b37ccbc835e736",
     "url": "/portal-penjanje/static/css/main.8ff1ee0b.chunk.css"
   },
   {
@@ -32,8 +32,8 @@ self.__precacheManifest = [
     "url": "/portal-penjanje/static/media/sanda-brid-za-cekic.f87c03b1.jpg"
   },
   {
-    "revision": "13350cf4997333c59bf0",
-    "url": "/portal-penjanje/static/js/main.5ad33b90.chunk.js"
+    "revision": "4237a7b37ccbc835e736",
+    "url": "/portal-penjanje/static/js/main.1a169f6d.chunk.js"
   },
   {
     "revision": "a72232f0fa925db5b3c34e666c7070ec",
@@ -60,7 +60,7 @@ self.__precacheManifest = [
     "url": "/portal-penjanje/static/media/brid-za-veliki-cekic-3.c33d67bc.jpg"
   },
   {
-    "revision": "6c5e9f07d854ed5171e33bd0c83fd393",
+    "revision": "0ae2cd2edf0a6a8f18f96fb55437dd31",
     "url": "/portal-penjanje/index.html"
   }
 ];
