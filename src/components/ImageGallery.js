@@ -18,32 +18,48 @@ const styles = theme => ({
     // width: 500,
     // height: 450,
   },
+  gridTile: {
+    cursor: 'pointer'
+  }
 });
 
 function ImageGallery(props) {
   const { classes, images } = props;
 
-  const [lightBoxOpen, setLightBoxOpen] = React.useState(false);
-  const [selectedImage, setSelectedImage] = React.useState(false);
+  const [selectedImage, setSelectedImage] = React.useState(null);
 
-  const handleClickOpen = (image) => {
-    setSelectedImage(image);
-    setLightBoxOpen(true);
+  const handleClickOpen = (index) => {
+    setSelectedImage(index);
   }
   const handleClickClose = () => {
-    setLightBoxOpen(false);
+    setSelectedImage(null);
+  }
+  const handleNextClick = () => {
+    if(selectedImage<images.length-1) {
+      setSelectedImage(selectedImage+1);
+    }
+  }
+  const handlePrevClick = () => {
+    if(selectedImage>0) {
+      setSelectedImage(selectedImage-1);
+    }
   }
 
   return (
     <div className={classes.root}>
       <GridList cellHeight={160} className={classes.gridList} cols={3}>
-        {images.map(image => (
-          <GridListTile key={image.file} cols={image.cols || 1} onClick={() => handleClickOpen(image)}>
+        {images.map((image,index) => (
+          <GridListTile className={classes.gridTile} key={image.file} cols={image.cols || 1} onClick={() => handleClickOpen(index)}>
             <img src={image.file} alt={image.title} />
           </GridListTile>
         ))}
       </GridList>
-      <ImageLightBox open={lightBoxOpen} onClose={handleClickClose} image={selectedImage} />
+      <ImageLightBox
+        onClose={handleClickClose}
+        onNextClick={handleNextClick}
+        onPrevClick={handlePrevClick}
+        images={images}
+        imageIndex={selectedImage} />
     </div>
   );
 }

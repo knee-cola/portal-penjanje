@@ -1,21 +1,53 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Dialog from '@material-ui/core/Dialog';
-import { IconButton, Icon } from '@material-ui/core';
+import { IconButton, Icon, withStyles } from '@material-ui/core';
+
+const styles = theme => ({
+  buttons: {
+    position: 'absolute',
+    color: 'white',
+    textShadow: '1px 1px 5px black'   
+  },
+  closeButton: {
+    right: 0,
+  },
+  prevButton: {
+    top: 0,
+    bottom: 0,
+    left: 0,
+  },
+  nextButton: {
+    top: 0,
+    bottom: 0,
+    right: 0,
+  },
+  image: {
+    height: 'calc(100vh - 96px)',
+    maxWIdth: 'calc(100vw - 96px)'
+  }
+});
+
 
 function ImageLightBox(props) {
-  const { onClose, open, image } = props;
+  const { onClose, onNextClick, onPrevClick, classes, images, imageIndex } = props;
 
-  function handleClose() {
-    onClose();
-  }
+  if(imageIndex===null) { return(null); }
+
+  const image = images[imageIndex];
 
   return (
-    <Dialog onClose={handleClose} aria-labelledby="simple-dialog-title" open={open} >
-        <IconButton aria-label="Close" onClick={handleClose}>
-          <Icon>close</Icon>
+    <Dialog onClose={onClose} aria-labelledby="simple-dialog-title" open={true}>
+        <IconButton aria-label="Previous image" onClick={onPrevClick} className={classes.buttons+' '+classes.prevButton}>
+          <Icon>arrow_back_ios</Icon>
         </IconButton>
-        <img src={image.file} alt={image.title} height="100%" />
+        <IconButton aria-label="Next image" onClick={onNextClick} className={classes.buttons+' '+classes.nextButton}>
+          <Icon>arrow_forward_ios</Icon>
+        </IconButton>
+        <IconButton aria-label="Close" onClick={onClose} className={classes.buttons+' '+classes.closeButton}>
+          <Icon>cancel</Icon>
+        </IconButton>
+        <img src={image.file} alt={image.title} className={classes.image} />
     </Dialog>
   );
 }
@@ -24,4 +56,4 @@ ImageLightBox.propTypes = {
   onClose: PropTypes.func
 };
 
-export default ImageLightBox;
+export default withStyles(styles)(ImageLightBox);
