@@ -69,7 +69,7 @@ export const smjerovi = [
 export const usponi = [
     {
         id: 1,
-        penjaci: penjaci.filter(({nick}) => (nick === 'knee-cola' || nick === 'krcko')),
+        penjaci: penjaci.filter(({nick}) => (nick === 'knee-cola' || nick === 'krcko' || nick === 'banovec')),
         titleImage: KrckoSpitBull,
         images: slikeSIzleta,
         datumUspona:'23.03.2019.',
