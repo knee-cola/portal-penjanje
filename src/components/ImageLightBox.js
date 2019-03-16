@@ -4,6 +4,9 @@ import Dialog from '@material-ui/core/Dialog';
 import { IconButton, Icon, withStyles } from '@material-ui/core';
 
 const styles = theme => ({
+  paper: {
+    margin: 0
+  },
   buttons: {
     position: 'absolute',
     color: 'white',
@@ -23,8 +26,8 @@ const styles = theme => ({
     right: 0,
   },
   image: {
-    maxHeight: 'calc(100vh - 96px)',
-    maxWidth: 'calc(100vw - 10px)'
+    maxHeight: '100%',
+    maxWidth: '100%',
   }
 });
 
@@ -37,7 +40,7 @@ function ImageLightBox(props) {
   const image = images[imageIndex];
 
   return (
-    <Dialog onClose={onClose} aria-labelledby="simple-dialog-title" open={true}>
+    <Dialog onClose={onClose} aria-labelledby="simple-dialog-title" open={true} classes={{paper: classes.paper}}>
         <IconButton aria-label="Previous image" onClick={onPrevClick} className={classes.buttons+' '+classes.prevButton}>
           <Icon>arrow_back_ios</Icon>
         </IconButton>
