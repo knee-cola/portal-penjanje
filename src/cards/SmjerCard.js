@@ -1,13 +1,8 @@
 import React, { Fragment } from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
-import Typography from '@material-ui/core/Typography';
-import { Link, CardHeader, IconButton, Icon, Collapse, CardActionArea, Menu, MenuItem } from '@material-ui/core';
-import { Link as RouterLink } from 'react-router-dom';
-import ImageGallery from '../components/ImageGallery';
-import classnames from 'classnames';
+import { CardHeader, IconButton, Icon, Menu, MenuItem } from '@material-ui/core';
 
 const styles = {
   card: {
@@ -26,12 +21,7 @@ function SmjerCard(props) {
   
   const { classes, smjer:{ imeSmjera, ocjenaSmjera, lokacijaSmjera, thumb } } = props;
 
-  const [expanded, setExpanded] = React.useState(false);
   const [menuAnchorEl, setMenuAnchorEl] = React.useState(null);
-
-  function handleExpandClick() {
-    setExpanded(!expanded);
-  }
 
   function handleClick(event) {
     setMenuAnchorEl(event.currentTarget);
@@ -54,7 +44,6 @@ function SmjerCard(props) {
           subheader={lokacijaSmjera}
         />
         <CardMedia
-          onClick={handleExpandClick}
           className={classes.media}
           image={thumb}
         />
