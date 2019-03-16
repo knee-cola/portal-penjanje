@@ -7,7 +7,10 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import { withRouter } from 'react-router-dom';
+import { Link } from '@material-ui/core';
+import { Link as RouterLink } from 'react-router-dom';
+import ImageGallery from '../components/ImageGallery';
+
 
 const styles = {
   card: {
@@ -21,34 +24,37 @@ const styles = {
 
 function UsponCard(props) {
   
-  const { history, classes, uspon: { id, penjaci, img, datumUspona, smjer: { imeSmjera, lokacijaSmjera, ocjenaSmjera } } } = props;
-  const usponUrl = `/usponi/${datumUspona.replace(/\./g,'-').substr(0,10)}/${imeSmjera.toLocaleLowerCase().replace(' ','-')}-${id}/`;
+  const { classes, uspon: { penjaci, titleImage, images, datumUspona, smjer: { imeSmjera, lokacijaSmjera, ocjenaSmjera } } } = props;
 
   return (
-    <Card className={classes.card} onClick={() => history.push(usponUrl)}>
+    <Card className={classes.card}>
       <CardActionArea>
         <CardMedia
           className={classes.media}
-          image= {img}
+          image={titleImage}
         />
         <CardContent>
-          <Typography component="p">
-            {datumUspona} {penjaci.join(', ')}
-          </Typography>
-          <Typography gutterBottom variant="h5" component="h2">
-              {imeSmjera}, {ocjenaSmjera}
-          </Typography>
           <Typography component="i">
+            {datumUspona}
+          </Typography>
+          <Typography className={classes.nazivSmjera} gutterBottom variant="h5" component="h2">
+            {imeSmjera}, {ocjenaSmjera}
+          </Typography>
+          <Typography component="p">
             {lokacijaSmjera}
           </Typography>
+          <Typography component="p">
+              Penjali: {penjaci.map(({nick, ime}, ix)=> <Link key={nick} component={RouterLink} to={`@${nick}`}>{ime} </Link>)} 
+          </Typography>
+          <Typography component="p" className={classes.notes}>
+              Predivno vrijeme. Fali prvi spit, a drugi štand je otpao
+          </Typography>
+          <ImageGallery images={images} />
         </CardContent>
       </CardActionArea>
       <CardActions>
         <Button size="small" color="primary">
-          Detalji uspona
-        </Button>
-        <Button size="small" color="primary">
-          Želim to penjati
+          Info o smjeru
         </Button>
       </CardActions>
     </Card>
@@ -56,4 +62,4 @@ function UsponCard(props) {
 }
 
 
-export default withStyles(styles)( withRouter(UsponCard) ) ;
+export default withStyles(styles)( UsponCard ) ;

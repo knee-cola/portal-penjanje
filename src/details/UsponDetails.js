@@ -1,5 +1,5 @@
 import React from 'react';
-import { Paper, Typography, withStyles, Link } from '@material-ui/core';
+import { Paper, Typography, withStyles, Link, Button } from '@material-ui/core';
 import { Link as RouterLink } from 'react-router-dom';
 import ImageGallery from '../components/ImageGallery';
 
@@ -15,6 +15,9 @@ const styles = {
     },
     nazivSmjera: {
         marginBottom: 0
+    },
+    notes: {
+        marginTop: 10
     }
   };
 
@@ -31,7 +34,7 @@ const UsponDetails = ({classes}) =>
         15.05.2019.
     </Typography>
     <Typography className={classes.nazivSmjera} gutterBottom variant="h5" component="h2">
-        Nosorog 6a
+        Bird za Veliki Čekić, 6a
     </Typography>
     <Typography component="p">
         Kuk od Nosoroga
@@ -39,10 +42,13 @@ const UsponDetails = ({classes}) =>
     <Typography component="p">
         Penjali: <Link component={RouterLink} to="/penjaci/@knee-cola/">Nikola Derežić</Link> i <Link component={RouterLink} to="/penjaci/@krcko/">Dragutin Vdović</Link>
     </Typography>
-    <ImageGallery images={images} />
-    <Typography component="p">
+    <Typography component="p" className={classes.notes}>
         Predivno vrijeme. Fali prvi spit, a drugi štand je otpao
     </Typography>
+    <ImageGallery images={images} />
+    <Button size="small" color="primary" style={{marginTop:10}}>
+        Info o smjeru
+    </Button>
 </Paper>;
 
 export default withStyles(styles)(UsponDetails);
