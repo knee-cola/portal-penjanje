@@ -44,7 +44,7 @@ function UsponCard(props) {
             {lokacijaSmjera}
           </Typography>
           <Typography component="p">
-              Penjali: {penjaci.map(({nick, ime}, ix)=> <Link key={nick} component={RouterLink} to={`@${nick}`}>{ime} </Link>)} 
+              Penjali: {penjaci.map(({nick, ime, prezime}, ix)=> <Link key={nick} component={RouterLink} to={`@${nick}`}>{ime} {prezime}</Link>)} 
           </Typography>
           <Typography component="p" className={classes.notes}>
               Predivno vrijeme. Fali prvi spit, a drugi štand je otpao
