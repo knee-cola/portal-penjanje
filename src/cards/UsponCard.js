@@ -17,7 +17,9 @@ const styles = {
   media: {
     height: 0,
     paddingTop: '56.25%', // 16:9
-    cursor: 'pointer'
+    cursor: 'pointer',
+    borderTop: '1px solid #cccccc',
+    borderBottom: '1px solid #cccccc',
   },
   expand: {
     transform: 'rotate(0deg)',
