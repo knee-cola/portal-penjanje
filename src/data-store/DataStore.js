@@ -68,6 +68,15 @@ export const smjerovi = [
 
 export const usponi = [
     {
+        id: 3,
+        penjaci: penjaci.filter(({nick}) => (nick === 'rene' || nick === 'sampita')),
+        titleImage: Grapa,
+        images: slikeSIzleta,
+        datumUspona:'23.03.2019.',
+        smjer: smjerovi.find(({id}) => id === 'pripravniska-grapa'),
+        napomena: 'Bilo je jako hladnoi, smrzla num se muda od smrzavice!',
+    },
+    {
         id: 1,
         penjaci: penjaci.filter(({nick}) => (nick === 'knee-cola' || nick === 'krcko' || nick === 'banovec')),
         titleImage: KrckoSpitBull,
@@ -84,15 +93,6 @@ export const usponi = [
         datumUspona:'23.03.2019.',
         smjer: smjerovi.find(({id}) => id === 'brid-za-cekic'),
         napomena: 'Baš smo se nauživali straha u prečnici na početku Brida'
-    },
-    {
-        id: 3,
-        penjaci: penjaci.filter(({nick}) => (nick === 'rene' || nick === 'sampita')),
-        titleImage: Grapa,
-        images: slikeSIzleta,
-        datumUspona:'23.03.2019.',
-        smjer: smjerovi.find(({id}) => id === 'pripravniska-grapa'),
-        napomena: 'Bilo je jako hladnoi, smrzla num se muda od smrzavice!',
     },
     {
         id: 4,
