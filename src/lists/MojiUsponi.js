@@ -3,8 +3,8 @@ import UsponCard from '../cards/UsponCard';
 import { mojiUsponi } from '../data-store/DataStore';
 import AddButton from '../components/AddButton';
 
-export const MojiUsponi = () =>
+export const MojiUsponi = props =>
 <Fragment>
-    { mojiUsponi('knee-cola').map(uspon => <UsponCard key={uspon.id} uspon={uspon} />) }
+    { mojiUsponi('knee-cola').map(uspon => <UsponCard key={uspon.id} uspon={uspon} {...props} />) }
     <AddButton />
 </Fragment>;

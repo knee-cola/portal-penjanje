@@ -91,4 +91,4 @@ function UsponCard(props) {
   );
 }
 
-export default withRouter(withStyles(styles)( UsponCard )) ;
+export default withStyles(styles)( UsponCard );

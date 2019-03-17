@@ -3,8 +3,8 @@ import UsponCard from '../cards/UsponCard';
 import { usponi } from '../data-store/DataStore';
 import AddButton from '../components/AddButton';
 
-export const ZadnjePenjano = () => 
+export const ZadnjePenjano = props => 
 <Fragment>
-    { usponi.map(uspon => <UsponCard uspon={uspon} key={uspon.id} />) }
+    { usponi.map(uspon => <UsponCard uspon={uspon} key={uspon.id} {...props} />) }
     <AddButton />
 </Fragment>;
