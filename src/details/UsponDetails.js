@@ -8,22 +8,20 @@ const styles = {
 
 };
 
-function UsponDetails({classes}) {
+function UsponDetails({classes, match:{params:{id}}}) {
 
-    const urlParts = window.location.pathname.split('/'),
-          // zadnji dio URL-a sadrži ID
-          uspon = usponByID( parseInt( urlParts[urlParts.length-2] ));
+  const uspon = usponByID( parseInt( id ));
 
-    return(
-        <UsponCard uspon={uspon} >
-          <CardContent>
-            <Typography component="p" className={classes.notes}>
-              {uspon.napomena}
-            </Typography>
-            <ImageGallery images={uspon.images} />
-          </CardContent>
-        </UsponCard>
-    );
+  return(
+      <UsponCard uspon={uspon} >
+        <CardContent>
+          <Typography component="p" className={classes.notes}>
+            {uspon.napomena}
+          </Typography>
+          <ImageGallery images={uspon.images} />
+        </CardContent>
+      </UsponCard>
+  );
 }
 
 export default withStyles(styles)( UsponDetails ) ;
