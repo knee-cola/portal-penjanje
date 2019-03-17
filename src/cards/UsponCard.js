@@ -5,9 +5,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import { Link, CardHeader, IconButton, Icon, Collapse, CardActionArea, Menu, MenuItem } from '@material-ui/core';
-import { Link as RouterLink } from 'react-router-dom';
-import ImageGallery from '../components/ImageGallery';
-import classnames from 'classnames';
+import { Link as RouterLink, withRouter } from 'react-router-dom';
 
 const styles = {
   card: {
@@ -38,12 +36,16 @@ const styles = {
 
 function UsponCard(props) {
   
-  const { classes, uspon: { penjaci, titleImage, images, datumUspona, napomena, smjer: { imeSmjera, lokacijaSmjera, ocjenaSmjera } } } = props;
+  const { classes, history, children, uspon: { id, penjaci, titleImage, images, datumUspona, napomena, smjer: { imeSmjera, lokacijaSmjera, ocjenaSmjera } } } = props;
   const [expanded, setExpanded] = React.useState(false);
   const [menuAnchorEl, setMenuAnchorEl] = React.useState(null);
 
   function handleExpandClick() {
     setExpanded(!expanded);
+  }
+
+  function gotoDetails() {
+    history.push(`/usponi/${id}/`);
   }
 
   function handleClick(event) {
@@ -67,7 +69,7 @@ function UsponCard(props) {
           subheader={lokacijaSmjera}
         />
         <CardMedia
-          onClick={handleExpandClick}
+          onClick={gotoDetails}
           className={classes.media}
           image={titleImage}
         />
@@ -79,17 +81,7 @@ function UsponCard(props) {
             penjali {penjaci.map(({nick, ime, prezime}, ix, self)=> <Fragment key={nick}>{ix===0 ? '': (ix === self.length-1 ? ' i ' : ', ')}<Link component={RouterLink} to={`@${nick}`}>{ime} {prezime}</Link></Fragment>)} 
           </Typography>
         </CardContent>
-        <CardActionArea onClick={handleExpandClick} aria-label="Show more" className={classes.actionArea}>
-          <Icon className={classnames(classes.expand, { [classes.expandOpen]: expanded })}>expand_more</Icon>
-        </CardActionArea>
-        <Collapse in={expanded} timeout="auto" unmountOnExit>
-          <CardContent>
-            <Typography component="p" className={classes.notes}>
-              {napomena}
-            </Typography>
-            <ImageGallery images={images} />
-          </CardContent>
-        </Collapse>
+        {children}
       </Card>
       <Menu id="simple-menu" anchorEl={menuAnchorEl} open={Boolean(menuAnchorEl)} onClose={handleClose}>
         <MenuItem onClick={handleClose}>Info o smjeru</MenuItem>
@@ -99,5 +91,4 @@ function UsponCard(props) {
   );
 }
 
-
-export default withStyles(styles)( UsponCard ) ;
+export default withRouter(withStyles(styles)( UsponCard )) ;

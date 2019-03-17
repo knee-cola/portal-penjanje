@@ -122,3 +122,5 @@ export const mojiPartneri = myNick => mojiUsponi(myNick)
         .filter(({nick}) => nick !== myNick)
         // uklanjam duplikate (ako smo više puta zajedno penjali)
         .filter((item, pos, self) => self.indexOf(item) === pos);
+
+export const usponByID = usponID => usponi.find(el => el.id === usponID);
