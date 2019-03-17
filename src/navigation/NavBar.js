@@ -5,6 +5,9 @@ import { IconButton, Typography, Icon } from '@material-ui/core';
 
 const NavBar = ({handleDrawerToggle}) => {
 
+  // resetiram scroll poziciju
+  window.scrollTo(0, 0);
+
   let title;
 
   switch(window.location.pathname) {
