@@ -10,8 +10,9 @@ const styles = {
 
 function UsponDetails({classes}) {
 
-    const usponID = window.location.pathname.split('/')[2],
-          uspon = usponByID( parseInt(usponID));
+    const urlParts = window.location.pathname.split('/'),
+          // zadnji dio URL-a sadrži ID
+          uspon = usponByID( parseInt( urlParts[urlParts.length-2] ));
 
     return(
         <UsponCard uspon={uspon} >
