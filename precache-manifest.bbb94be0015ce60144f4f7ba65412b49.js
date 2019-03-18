@@ -4,7 +4,7 @@ self.__precacheManifest = [
     "url": "/portal-penjanje/static/media/grapa.423a722c.jpg"
   },
   {
-    "revision": "41492736a707f5b128e1",
+    "revision": "33704b80bc9c175341cc",
     "url": "/portal-penjanje/static/css/main.cc986e1a.chunk.css"
   },
   {
@@ -32,8 +32,8 @@ self.__precacheManifest = [
     "url": "/portal-penjanje/static/media/velebitas.cad2dcbd.jpg"
   },
   {
-    "revision": "41492736a707f5b128e1",
-    "url": "/portal-penjanje/static/js/main.1ec0f1b1.chunk.js"
+    "revision": "33704b80bc9c175341cc",
+    "url": "/portal-penjanje/static/js/main.463026b9.chunk.js"
   },
   {
     "revision": "08f6dda56a5ac508efc8418e72a7ce45",
@@ -64,7 +64,7 @@ self.__precacheManifest = [
     "url": "/portal-penjanje/static/media/baseline-person-24px.25cabb35.svg"
   },
   {
-    "revision": "9f41708f27a11186e46ff7900d3b1e03",
+    "revision": "9b9f1305de9f7f3a0e0a869c632570b5",
     "url": "/portal-penjanje/index.html"
   }
 ];
