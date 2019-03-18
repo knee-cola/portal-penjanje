@@ -38,7 +38,7 @@ export const smjerovi = [
     {
         id:'velebitas',
         imeSmjera:'Velebitaš',
-        lokacijaSmjera:'Sjeverna stijena, Anića kuk, Velika Paklenica, Croatia',
+        lokacijaSmjera:'Sjeverna stijena > Anića kuk > Velika Paklenica > Croatia',
         ocjenaSmjera:'6a+',
         thumb: SkicaVelebitas,
     },
@@ -46,21 +46,21 @@ export const smjerovi = [
         id:'spit-bull',
         imeSmjera:'Spit Bull',
         ocjenaSmjera:'5c',
-        lokacijaSmjera:'Kuk od Nosoroga, Velika Paklenica, Croatia',
+        lokacijaSmjera:'Kuk od Nosoroga > Velika Paklenica > Croatia',
         thumb: SkicaSpitBull,
     },
     {
         id: 'brid-za-cekic',
         imeSmjera:'Brid za veliki čekić',
         ocjenaSmjera:'5b',
-        lokacijaSmjera:'Kuk od gaćina, Velika Paklenica, Croatia',
+        lokacijaSmjera:'Kuk od gaćina > Velika Paklenica > Croatia',
         thumb: SkicaBridZaCekic,
     },
     {
         id: 'pripravniska-grapa',
         imeSmjera:'Pripravniška grapa',
         ocjenaSmjera:'VI+ / M3',
-        lokacijaSmjera:'Mala Mojstrovka, Julijske alpe, Slovenija',
+        lokacijaSmjera:'Mala Mojstrovka > Julijske alpe > Slovenija',
         thumb: SkicaPripravniska,
     },
 

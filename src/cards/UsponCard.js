@@ -4,8 +4,8 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
-import { Link, CardHeader, IconButton, Icon, Collapse, CardActionArea, Menu, MenuItem } from '@material-ui/core';
-import { Link as RouterLink, withRouter } from 'react-router-dom';
+import { Link, CardHeader, IconButton, Icon, Menu, MenuItem } from '@material-ui/core';
+import { Link as RouterLink } from 'react-router-dom';
 
 const styles = {
   card: {
@@ -36,7 +36,7 @@ const styles = {
 
 function UsponCard(props) {
   
-  const { classes, history, children, uspon: { id, penjaci, titleImage, images, datumUspona, napomena, smjer: { imeSmjera, lokacijaSmjera, ocjenaSmjera } } } = props;
+  const { classes, history, children, uspon: { id, penjaci, titleImage, datumUspona, smjer: { imeSmjera, lokacijaSmjera, ocjenaSmjera } } } = props;
   const [expanded, setExpanded] = React.useState(false);
   const [menuAnchorEl, setMenuAnchorEl] = React.useState(null);
 
@@ -75,10 +75,7 @@ function UsponCard(props) {
         />
         <CardContent>
           <Typography component="p">
-            {datumUspona} 
-          </Typography>
-          <Typography component="p">
-            penjali {penjaci.map(({nick, ime, prezime}, ix, self)=> <Fragment key={nick}>{ix===0 ? '': (ix === self.length-1 ? ' i ' : ', ')}<Link component={RouterLink} to={`@${nick}`}>{ime} {prezime}</Link></Fragment>)} 
+            {datumUspona} penjali {penjaci.map(({nick, ime, prezime}, ix, self)=> <Fragment key={nick}>{ix===0 ? '': (ix === self.length-1 ? ' i ' : ', ')}<Link component={RouterLink} to={`@${nick}`}>{ime} {prezime}</Link></Fragment>)} 
           </Typography>
         </CardContent>
         {children}
