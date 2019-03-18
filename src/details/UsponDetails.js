@@ -9,11 +9,11 @@ import { Link as RouterLink } from 'react-router-dom';
 import ImageGallery from '../components/ImageGallery';
 import { usponByID }from '../data-store/DataStore';
 import Slide from '@material-ui/core/Slide';
+import CustomCardHeader from '../components/CustomCardHeader';
 
 const styles = {
   card: {
-    maxWidth: 400,
-    margin: '1em'
+    maxWidth: 400
   },
   media: {
     height: 0,
@@ -44,19 +44,17 @@ function UsponDetails({ match:{ params:{id}}, classes }) {
             image={titleImage}
           />
         </Slide>
-        <CardHeader
+        <CustomCardHeader
           action={
             <IconButton onClick={handleClick}>
               <Icon>more_vert</Icon>
             </IconButton>
           }
+          breadcrumbs={lokacijaSmjera}
           title={`${imeSmjera}, ${ocjenaSmjera}`}
-          subheader={lokacijaSmjera}
+          subheader= {<Fragment>{datumUspona} penjali {penjaci.map(({nick, ime, prezime}, ix, self)=> <Fragment key={nick}>{ix===0 ? '': (ix === self.length-1 ? ' i ' : ', ')}<Link component={RouterLink} to={`@${nick}`}>{ime} {prezime}</Link></Fragment>)} </Fragment>}
         />
         <CardContent>
-          <Typography component="p">
-            {datumUspona} penjali {penjaci.map(({nick, ime, prezime}, ix, self)=> <Fragment key={nick}>{ix===0 ? '': (ix === self.length-1 ? ' i ' : ', ')}<Link component={RouterLink} to={`@${nick}`}>{ime} {prezime}</Link></Fragment>)} 
-          </Typography>
           <Typography component="p" className={classes.notes}>
             {napomena}
           </Typography>

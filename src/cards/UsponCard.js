@@ -6,11 +6,12 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import { Link, CardHeader, IconButton, Icon, Menu, MenuItem } from '@material-ui/core';
 import { Link as RouterLink } from 'react-router-dom';
+import CustomCardHeader from '../components/CustomCardHeader';
 
 const styles = {
   card: {
     maxWidth: 400,
-    margin: '1em'
+    marginBottom: '.5em'
   },
   media: {
     height: 0,
@@ -59,14 +60,14 @@ function UsponCard(props) {
   return (
     <Fragment>
       <Card className={classes.card}>
-        <CardHeader
+        <CustomCardHeader
           action={
             <IconButton onClick={handleClick}>
               <Icon>more_vert</Icon>
             </IconButton>
           }
           title={`${imeSmjera}, ${ocjenaSmjera}`}
-          subheader={lokacijaSmjera}
+          breadcrumbs={lokacijaSmjera}
         />
         <CardMedia
           onClick={gotoDetails}
