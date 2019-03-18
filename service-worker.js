@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/portal-penjanje/precache-manifest.10f80d66387b2c7392708695375b5d83.js"
+  "/portal-penjanje/precache-manifest.0dc2ffaf7f0e7e8608fcf192a0dc18e0.js"
 );
 
 workbox.clientsClaim();
