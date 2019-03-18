@@ -3,7 +3,7 @@ import { withStyles } from '@material-ui/core/styles';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
-import { Link, IconButton, Icon, Menu, MenuItem } from '@material-ui/core';
+import { Link, IconButton, Icon, Menu, MenuItem, Fade } from '@material-ui/core';
 import { Link as RouterLink } from 'react-router-dom';
 import ImageGallery from '../components/ImageGallery';
 import { usponByID }from '../data-store/DataStore';
@@ -22,6 +22,11 @@ function UsponDetails({ match:{ params:{id}}, classes }) {
 
   const { penjaci, titleImage, images, datumUspona, napomena, smjer: { imeSmjera, lokacijaSmjera, ocjenaSmjera } } = usponByID( parseInt( id ));
   const [menuAnchorEl, setMenuAnchorEl] = React.useState(null);
+  const [detailsVisible, setDetailsVisible] = React.useState(false);
+
+  window.setTimeout(() => {
+    setDetailsVisible(true);
+  }, 400);
 
   function handleClick(event) {
     setMenuAnchorEl(event.currentTarget);
@@ -49,12 +54,14 @@ function UsponDetails({ match:{ params:{id}}, classes }) {
         title={`${imeSmjera}, ${ocjenaSmjera}`}
         subheader= {<Fragment>{datumUspona} penjali {penjaci.map(({nick, ime, prezime}, ix, self)=> <Fragment key={nick}>{ix===0 ? '': (ix === self.length-1 ? ' i ' : ', ')}<Link component={RouterLink} to={`@${nick}`}>{ime} {prezime}</Link></Fragment>)} </Fragment>}
       />
-      <CardContent>
-        <Typography component="p" className={classes.notes}>
-          {napomena}
-        </Typography>
-      </CardContent>
-      <ImageGallery images={images} />
+      <Fade in={detailsVisible}>
+        <CardContent>
+          <Typography component="p" className={classes.notes}>
+              {napomena}
+          </Typography>
+          <ImageGallery images={images} />
+        </CardContent>
+      </Fade>
       <Menu id="simple-menu" anchorEl={menuAnchorEl} open={Boolean(menuAnchorEl)} onClose={handleClose}>
         <MenuItem onClick={handleClose}>Info o smjeru</MenuItem>
         <MenuItem onClick={handleClose}>Izmjeni zapis</MenuItem>

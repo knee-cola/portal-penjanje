@@ -28,7 +28,7 @@ function App(props) {
         <NavBar handleDrawerToggle={handleDrawerToggle} />
         <AppMenu handleDrawerToggle={handleDrawerToggle} menuOpen={menuOpen} />
         <Grid container justify="center">
-          <Grid item style={{width:'100%', maxWidth:400, paddingTop:40, paddingBottom: '1em', marginBottom: '1em'}} component={Paper} >
+          <Grid item style={{width:'100%', maxWidth:400, paddingTop:54, paddingBottom: '1em', marginBottom: '1em'}} component={Paper} >
             <Route path="/" exact component={ZadnjePenjano} />
             <Route path="/novi-uspon/" exact component={UsponForm} />
             <Route path="/usponi/:id/" component={UsponDetails} />
