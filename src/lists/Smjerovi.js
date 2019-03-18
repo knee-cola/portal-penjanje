@@ -7,4 +7,4 @@ export const Smjerovi = ({history}) =>
 <Fragment>
     { smjerovi.map(smjer => <SmjerCard key={smjer.id} smjer={smjer} />) }
     <AddButton history={history} />
-</Fragment>;
+</Fragment>

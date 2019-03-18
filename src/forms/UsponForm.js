@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import ReactDOM from 'react-dom';
 import { makeStyles } from '@material-ui/styles';
 import TextField from '@material-ui/core/TextField';
@@ -8,11 +8,8 @@ import DateFnsUtils from '@date-io/date-fns'; // Abstraction over common javascr
 import { Paper, FormControlLabel, Switch, Checkbox, Button, Radio, RadioGroup, FormLabel, FormControl, Select, OutlinedInput, MenuItem, InputLabel } from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({
-  container: {
+  form: {
     padding: '0 1em',
-    display: 'flex',
-    // alignItems: 'center',
-    maxWidth:400 // za desktop
   },
   textField: {
     flex: 1,
@@ -71,17 +68,15 @@ function UsponForm() {
     setValues({ ...values, [name]: date });
   };
 
-
   return (
-    <Paper className={classes.container}>
-        <form noValidate autoComplete="off">
+    <Fragment>
+        <form noValidate autoComplete="off" className={classes.form}>
             <TextField
                 required
                 id="smjer"
                 value={values.smjer}
                 label="Smjer"
                 className={classes.textField}
-                value={values.smjer}
                 onChange={handleChange('smjer')}
                 margin="normal"
                 type="search"
@@ -170,7 +165,7 @@ function UsponForm() {
             />
             <Button variant="contained" color="primary" className={classes.button}>Spremi uspon</Button>
         </form>
-    </Paper>
+    </Fragment>
   );
 }
 

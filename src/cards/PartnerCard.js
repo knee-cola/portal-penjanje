@@ -1,13 +1,11 @@
 import React, { Fragment } from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
-import { CardHeader, IconButton, Icon, Menu, MenuItem, Avatar } from '@material-ui/core';
+import { CardHeader, IconButton, Icon, Menu, MenuItem, Avatar, ListItemAvatar, ListItem, ListItemText, Typography, Divider } from '@material-ui/core';
 import defaultAvatar from '../img/baseline-person-24px.svg';
 
 const styles = {
   card: {
-    maxWidth: 400,
-    width: '100vw',
     margin: '.7em'
   }
 };
@@ -28,25 +26,22 @@ function SmjerCard(props) {
 
   return (
     <Fragment>
-      <Card className={classes.card}>
-        <CardHeader
-          avatar={
-            <Avatar aria-label="Recipe" className={classes.avatar} src={avatar || defaultAvatar}>
-              R
-            </Avatar>
-          }
-          action={
-            <IconButton onClick={handleClick}>
-              <Icon>more_vert</Icon>
-            </IconButton>
-          }
-          title={`${ime} ${prezime}`}
-          subheader={`@${nick}`}
+      <ListItem alignItems="flex-start">
+        <ListItemAvatar>
+          <Avatar src={avatar || defaultAvatar} />
+        </ListItemAvatar>
+        <ListItemText
+          primary={`${ime} ${prezime}`}
+          secondary={`@${nick}`}
         />
-      </Card>
+        <IconButton onClick={handleClick}>
+          <Icon>more_vert</Icon>
+        </IconButton>
+      </ListItem>
       <Menu id="simple-menu" anchorEl={menuAnchorEl} open={Boolean(menuAnchorEl)} onClose={handleClose}>
         <MenuItem onClick={handleClose}>Info o partneru</MenuItem>
       </Menu>
+      <Divider />
     </Fragment>
   );
 }

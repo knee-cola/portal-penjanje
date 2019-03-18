@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react';
 import { withStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
 import CardMedia from '@material-ui/core/CardMedia';
-import { CardHeader, IconButton, Icon, Menu, MenuItem } from '@material-ui/core';
+import { IconButton, Icon, Menu, MenuItem, Divider } from '@material-ui/core';
+import CustomCardHeader from '../components/CustomCardHeader';
 
 const styles = {
   card: {
@@ -10,11 +10,12 @@ const styles = {
     margin: '1em'
   },
   media: {
-    borderTop: '1px solid #cccccc',
     height: 0,
     paddingTop: '56.25%', // 16:9
-    cursor: 'pointer'
   },
+  darkDivider: {
+    backgroundColor: '#bbbbbb'
+  }
 };
 
 function SmjerCard(props) {
@@ -33,21 +34,21 @@ function SmjerCard(props) {
 
   return (
     <Fragment>
-      <Card className={classes.card}>
-        <CardHeader
-          action={
-            <IconButton onClick={handleClick}>
-              <Icon>more_vert</Icon>
-            </IconButton>
-          }
-          title={`${imeSmjera}, ${ocjenaSmjera}`}
-          subheader={lokacijaSmjera}
-        />
-        <CardMedia
-          className={classes.media}
-          image={thumb}
-        />
-      </Card>
+      <Divider className={classes.darkDivider} />
+      <CustomCardHeader
+        action={
+          <IconButton onClick={handleClick}>
+            <Icon>more_vert</Icon>
+          </IconButton>
+        }
+        title={`${imeSmjera}, ${ocjenaSmjera}`}
+        breadcrumbs={lokacijaSmjera}
+      />
+      <Divider />
+      <CardMedia
+        className={classes.media}
+        image={thumb}
+      />
       <Menu id="simple-menu" anchorEl={menuAnchorEl} open={Boolean(menuAnchorEl)} onClose={handleClose}>
         <MenuItem onClick={handleClose}>Info o smjeru</MenuItem>
         <MenuItem onClick={handleClose}>Zabilježi uspon</MenuItem>
