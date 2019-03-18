@@ -24,9 +24,11 @@ function UsponDetails({ match:{ params:{id}}, classes }) {
   const [menuAnchorEl, setMenuAnchorEl] = React.useState(null);
   const [detailsVisible, setDetailsVisible] = React.useState(false);
 
+  // detalje prikazujem sa dogodom neposredno nakon što
+  // naslovna slika "sjedne" na svoje mjesto
   window.setTimeout(() => {
     setDetailsVisible(true);
-  }, 400);
+  }, 300);
 
   function handleClick(event) {
     setMenuAnchorEl(event.currentTarget);
@@ -44,23 +46,25 @@ function UsponDetails({ match:{ params:{id}}, classes }) {
           image={titleImage}
         />
       </Slide>
-      <CustomCardHeader
-        action={
-          <IconButton onClick={handleClick}>
-            <Icon>more_vert</Icon>
-          </IconButton>
-        }
-        breadcrumbs={lokacijaSmjera}
-        title={`${imeSmjera}, ${ocjenaSmjera}`}
-        subheader= {<Fragment>{datumUspona} penjali {penjaci.map(({nick, ime, prezime}, ix, self)=> <Fragment key={nick}>{ix===0 ? '': (ix === self.length-1 ? ' i ' : ', ')}<Link component={RouterLink} to={`@${nick}`}>{ime} {prezime}</Link></Fragment>)} </Fragment>}
-      />
       <Fade in={detailsVisible}>
-        <CardContent>
-          <Typography component="p" className={classes.notes}>
-              {napomena}
-          </Typography>
+        <div>
+          <CustomCardHeader
+            action={
+              <IconButton onClick={handleClick}>
+                <Icon>more_vert</Icon>
+              </IconButton>
+            }
+            breadcrumbs={lokacijaSmjera}
+            title={`${imeSmjera}, ${ocjenaSmjera}`}
+            subheader= {<Fragment>{datumUspona} penjali {penjaci.map(({nick, ime, prezime}, ix, self)=> <Fragment key={nick}>{ix===0 ? '': (ix === self.length-1 ? ' i ' : ', ')}<Link component={RouterLink} to={`@${nick}`}>{ime} {prezime}</Link></Fragment>)} </Fragment>}
+          />
+          <CardContent>
+            <Typography component="p" className={classes.notes}>
+                {napomena}
+            </Typography>
+          </CardContent>
           <ImageGallery images={images} />
-        </CardContent>
+        </div>
       </Fade>
       <Menu id="simple-menu" anchorEl={menuAnchorEl} open={Boolean(menuAnchorEl)} onClose={handleClose}>
         <MenuItem onClick={handleClose}>Info o smjeru</MenuItem>
