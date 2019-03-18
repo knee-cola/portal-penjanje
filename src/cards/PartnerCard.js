@@ -1,7 +1,6 @@
 import React, { Fragment } from 'react';
 import { withStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import { CardHeader, IconButton, Icon, Menu, MenuItem, Avatar, ListItemAvatar, ListItem, ListItemText, Typography, Divider } from '@material-ui/core';
+import { IconButton, Icon, Menu, MenuItem, Avatar, ListItemAvatar, ListItem, ListItemText, Divider } from '@material-ui/core';
 import defaultAvatar from '../img/baseline-person-24px.svg';
 
 const styles = {
@@ -12,8 +11,7 @@ const styles = {
 
 function SmjerCard(props) {
   
-  const { classes, partner: { ime, prezime, nick, avatar } } = props;
-
+  const { partner: { ime, prezime, nick, avatar } } = props;
   const [menuAnchorEl, setMenuAnchorEl] = React.useState(null);
 
   function handleClick(event) {

@@ -1,10 +1,9 @@
 import React, { Fragment } from 'react';
 import { withStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
-import { Link, CardHeader, IconButton, Icon, Menu, MenuItem, Divider } from '@material-ui/core';
+import { Link, IconButton, Icon, Menu, MenuItem, Divider } from '@material-ui/core';
 import { Link as RouterLink } from 'react-router-dom';
 import CustomCardHeader from '../components/CustomCardHeader';
 
@@ -23,7 +22,7 @@ const styles = {
 
 function UsponCard(props) {
   
-  const { classes, history, children, uspon: { id, penjaci, titleImage, datumUspona, smjer: { imeSmjera, lokacijaSmjera, ocjenaSmjera } } } = props;
+  const { classes, history, uspon: { id, penjaci, titleImage, datumUspona, smjer: { imeSmjera, lokacijaSmjera, ocjenaSmjera } } } = props;
   const [menuAnchorEl, setMenuAnchorEl] = React.useState(null);
 
   function gotoDetails() {

@@ -5,7 +5,7 @@ import TextField from '@material-ui/core/TextField';
 import { MuiPickersUtilsProvider, DatePicker } from 'material-ui-pickers';
 import 'date-fns';  // provides the most comprehensive, yet simple and consistent toolset for manipulating JavaScript dates
 import DateFnsUtils from '@date-io/date-fns'; // Abstraction over common javascript date management libraries.
-import { Paper, FormControlLabel, Switch, Checkbox, Button, Radio, RadioGroup, FormLabel, FormControl, Select, OutlinedInput, MenuItem, InputLabel } from '@material-ui/core';
+import { FormControlLabel, Switch, Checkbox, Button, Radio, RadioGroup, FormLabel, FormControl, Select, OutlinedInput, MenuItem, InputLabel } from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({
   form: {
