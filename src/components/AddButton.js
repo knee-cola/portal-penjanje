@@ -12,13 +12,13 @@ const styles = theme => ({
 const AddButton = ({history, classes}) => {
     const [menuAnchorEl, setMenuAnchorEl] = React.useState(null);
 
-    function handleClick(event) {
-        setMenuAnchorEl(event.currentTarget);
-    }
-
-    function handleClose() {
-        setMenuAnchorEl(null);
-    }
+//    function handleClick(event) {
+//        setMenuAnchorEl(event.currentTarget);
+//    }
+//
+//    function handleClose() {
+//        setMenuAnchorEl(null);
+//    }
 
     function noviUsponOnClick() {
         history.push('/novi-uspon/')
@@ -26,13 +26,18 @@ const AddButton = ({history, classes}) => {
     
     return(
         <Fragment>
-            <Fab color="primary" aria-label="Add" className={classes.fab} onClick={handleClick}>
+            <Fab color="primary" aria-label="Add" className={classes.fab} onClick={noviUsponOnClick}>
                 <Icon>add</Icon>
             </Fab>
+            {
+            /*
+            Po novom "+" tipka vodi izravno na dodavanje uspona ... tako je jednostavnije za 99% slučajeva
+
             <Menu id="simple-menu" anchorEl={menuAnchorEl} open={Boolean(menuAnchorEl)} onClose={handleClose}>
                 <MenuItem onClick={noviUsponOnClick}>Novi uspon</MenuItem>
                 <MenuItem onClick={handleClose}>Novi smjer</MenuItem>
             </Menu>
+            */}
         </Fragment>);
 };
 
