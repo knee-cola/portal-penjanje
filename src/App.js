@@ -9,6 +9,7 @@ import { MojiPartneri } from './lists/MojiPartneri';
 import { Smjerovi } from './lists/Smjerovi';
 import UsponDetails from './details/UsponDetails';
 import { Grid } from '@material-ui/core';
+import UsponForm from './forms/UsponForm';
 
 function App(props) {
 
@@ -29,10 +30,12 @@ function App(props) {
         <Grid container justify="center" style={{marginTop:65}}>
           <Grid item>
             <Route path="/" exact component={ZadnjePenjano} />
+            <Route path="/novi-uspon/" exact component={UsponForm} />
             <Route path="/usponi/:id/" component={UsponDetails} />
             <Route path="/smjerovi/" component={Smjerovi} />
             <Route path="/moji-usponi/" component={MojiUsponi} />
             <Route path="/moji-partneri/" component={MojiPartneri} />
+            
           </Grid>
         </Grid>
       </div>

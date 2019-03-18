@@ -9,7 +9,7 @@ const styles = theme => ({
     },
   });
 
-const AddButton = ({classes}) => {
+const AddButton = ({history, classes}) => {
     const [menuAnchorEl, setMenuAnchorEl] = React.useState(null);
 
     function handleClick(event) {
@@ -19,6 +19,10 @@ const AddButton = ({classes}) => {
     function handleClose() {
         setMenuAnchorEl(null);
     }
+
+    function noviUsponOnClick() {
+        history.push('/novi-uspon/')
+    }
     
     return(
         <Fragment>
@@ -26,7 +30,7 @@ const AddButton = ({classes}) => {
                 <Icon>add</Icon>
             </Fab>
             <Menu id="simple-menu" anchorEl={menuAnchorEl} open={Boolean(menuAnchorEl)} onClose={handleClose}>
-                <MenuItem onClick={handleClose}>Novi uspon</MenuItem>
+                <MenuItem onClick={noviUsponOnClick}>Novi uspon</MenuItem>
                 <MenuItem onClick={handleClose}>Novi smjer</MenuItem>
             </Menu>
         </Fragment>);

@@ -6,5 +6,5 @@ import AddButton from '../components/AddButton';
 export const ZadnjePenjano = props => 
 <Fragment>
     { usponi.map(uspon => <UsponCard uspon={uspon} key={uspon.id} {...props} />) }
-    <AddButton />
+    <AddButton history={props.history} />
 </Fragment>;

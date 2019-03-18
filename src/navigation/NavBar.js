@@ -23,6 +23,9 @@ const NavBar = ({handleDrawerToggle}) => {
     case "/moji-usponi/":
       title = "Moji usponi";
       break;
+    case "/novi-uspon/":
+      title = "Novi uspon";
+      break;
     case "/moji-partneri/":
       title = "Moji partneri";
       break;
@@ -40,7 +43,7 @@ const NavBar = ({handleDrawerToggle}) => {
             >
               <Icon>menu</Icon>
             </IconButton>
-            <Typography variant="h6" color="inherit" noWrap>
+            <Typography variant="h6" color="inherit" noWrap onClick={handleDrawerToggle} style={{cursor:'pointer'}}>
               {title}
             </Typography>
           </Toolbar>
