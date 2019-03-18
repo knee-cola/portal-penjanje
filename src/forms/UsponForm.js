@@ -12,7 +12,7 @@ const useStyles = makeStyles(theme => ({
     padding: '0 1em',
     display: 'flex',
     // alignItems: 'center',
-    width: 400,
+    maxWidth:400 // za desktop
   },
   textField: {
     flex: 1,
