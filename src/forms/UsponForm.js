@@ -8,6 +8,8 @@ import DateFnsUtils from '@date-io/date-fns'; // Abstraction over common javascr
 import { FormControlLabel, Switch, Checkbox, Button, Radio, RadioGroup, FormLabel, FormControl, Select, OutlinedInput, MenuItem, InputLabel, Fade, Typography } from '@material-ui/core';
 import AutocompleteSelect from './form-controls/AutocompleteSelect';
 import { smjerovi, penjaci, tipoviUspona, mjestoUNavezu } from '../data-store/DataStore';
+import StyledImageUploader from './form-controls/StyledImageUploader';
+
 
 const useStyles = makeStyles(theme => ({
   form: {
@@ -85,6 +87,7 @@ function UsponForm() {
     datumUspona: new Date(),
     prvenstveniUspon: false,
     tipUspona: '',
+    pictures: [],
   });
 
   const handleChange = (name, propertyName='value') => event => {
@@ -101,6 +104,10 @@ function UsponForm() {
 
   const handleCreateSmjer = imeSmjera => {
     console.warn('ovo još nije implementirano - treba prikazati formu za kreiranje novog smjera');
+  }
+
+	const onDrop = (pictureFiles, pictureDataURLs) => {
+		setValues({ pictures: values.pictures.concat(pictureFiles) });
   }
 
   return (
@@ -192,6 +199,8 @@ function UsponForm() {
                 }
                 label='objavi javno na stranici "Zadnje penjano"'
             />
+            <StyledImageUploader onDrop={onDrop} />
+
             <Button variant="contained" color="primary" className={classes.button}>Spremi uspon</Button>
         </form>
       </Fade>

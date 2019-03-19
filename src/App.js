@@ -8,7 +8,7 @@ import { MojiUsponi } from './lists/MojiUsponi';
 import { MojiPartneri } from './lists/MojiPartneri';
 import { Smjerovi } from './lists/Smjerovi';
 import UsponDetails from './details/UsponDetails';
-import { Grid, Paper, createMuiTheme } from '@material-ui/core';
+import { Grid, Paper, createMuiTheme, CssBaseline } from '@material-ui/core';
 import UsponForm from './forms/UsponForm';
 import { ThemeProvider } from '@material-ui/styles';
 
@@ -33,6 +33,7 @@ function App(props) {
     <BrowserRouter basename={basename}>
       <ThemeProvider theme={theme}>
         <div>
+          <CssBaseline />
           <NavBar handleDrawerToggle={handleDrawerToggle} />
           <AppMenu handleDrawerToggle={handleDrawerToggle} menuOpen={menuOpen} />
           <Grid container justify="center">
