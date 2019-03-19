@@ -2,7 +2,8 @@
 
 import React from 'react';
 import classNames from 'classnames';
-import Select from 'react-select';
+//import Select from 'react-select';
+import Select from 'react-select/lib/Creatable';
 import { makeStyles, useTheme, withTheme } from '@material-ui/styles';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
@@ -10,7 +11,7 @@ import Paper from '@material-ui/core/Paper';
 import Chip from '@material-ui/core/Chip';
 import MenuItem from '@material-ui/core/MenuItem';
 import { emphasize } from '@material-ui/core/styles/colorManipulator';
-import { Icon } from '@material-ui/core';
+import { Icon, ListItemText } from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -102,8 +103,9 @@ function Option(props) {
         fontWeight: props.isSelected ? 500 : 400,
       }}
       {...props.innerProps}
+      
     >
-      {props.children}
+      <ListItemText primary={props.data.label} secondary={props.data.subLabel} />
     </MenuItem>
   );
 }
@@ -156,7 +158,7 @@ const components = {
   ValueContainer,
 };
 
-function AutocompleteSelect({label, placeholder, onChange, value, suggestions, className, helperText}) {
+function AutocompleteSelect({label, placeholder, onChange, value, suggestions, className, helperText, onCreateOption}) {
 
   const theme = useTheme();
   const classes = useStyles();
@@ -190,6 +192,12 @@ function AutocompleteSelect({label, placeholder, onChange, value, suggestions, c
         onChange={onChange}
         placeholder={placeholder}
         isMulti
+        isSearchable
+        isClearable={false}
+        menuPlacement='auto'// 'auto' will flip when there isn't enough space below the control
+        hideSelectedOptions // ne dopuštam da ista opcije bude 2x dodana
+        formatCreateLabel={inputValue=>`kreiraj ${label.toLowerCase()} "${inputValue}"`}
+        onCreateOption={onCreateOption}
     />
   );
 }

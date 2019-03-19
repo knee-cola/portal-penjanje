@@ -5,7 +5,7 @@ import TextField from '@material-ui/core/TextField';
 import { MuiPickersUtilsProvider, DatePicker } from 'material-ui-pickers';
 import 'date-fns';  // provides the most comprehensive, yet simple and consistent toolset for manipulating JavaScript dates
 import DateFnsUtils from '@date-io/date-fns'; // Abstraction over common javascript date management libraries.
-import { FormControlLabel, Switch, Checkbox, Button, Radio, RadioGroup, FormLabel, FormControl, Select, OutlinedInput, MenuItem, InputLabel, Fade } from '@material-ui/core';
+import { FormControlLabel, Switch, Checkbox, Button, Radio, RadioGroup, FormLabel, FormControl, Select, OutlinedInput, MenuItem, InputLabel, Fade, Typography } from '@material-ui/core';
 import AutocompleteSelect from './form-controls/AutocompleteSelect';
 import { smjerovi, penjaci } from '../data-store/DataStore';
 
@@ -42,12 +42,17 @@ const useStyles = makeStyles(theme => ({
   },
   autocomplete: {
     marginTop: '2em'
-  }
+  },
+  caption: {
+    marginTop: '0.5em',
+    textAlign: 'center',
+  },
 }));
 
-const smjeroviSuggestions = smjerovi.map(({id, imeSmjera}) => ({
+const smjeroviSuggestions = smjerovi.map(({id, imeSmjera, lokacijaSmjera}) => ({
   value: id,
   label: imeSmjera,
+  subLabel: lokacijaSmjera
 }));
 
 const partneriSuggestions = penjaci.map(({id, ime, prezime, nick}) => ({
@@ -88,6 +93,10 @@ function UsponForm() {
     setValues({ ...values, [name]: date });
   };
 
+  const handleCreateSmjer = imeSmjera => {
+    console.warn('ovo još nije implementirano - treba prikazati formu za kreiranje novog smjera');
+  }
+
   return (
     <Fragment>
       <Fade in={true} timeout={700}>
@@ -100,9 +109,9 @@ function UsponForm() {
               className={classes.autocomplete}
               suggestions={smjeroviSuggestions}
               placeholder="Odaberite penjani smjer"
-              helperText="ako ste u usponu kombinirali više smjerova dodajte ih sve"
+              onCreateOption={handleCreateSmjer}
             />
-
+            <Typography variant="caption" className={classes.caption}>ako ste u usponu kombinirali više smjerova dodajte ih sve</Typography>
             <FormControl variant="outlined" className={classes.tipUsponaControl}>
               <InputLabel ref={inputLabelRef} htmlFor="outlined-age-simple">Tip uspona</InputLabel>
               <Select value={values.tipUspona} onChange={handleChange('tipUspona')} input={ <OutlinedInput labelWidth={labelWidth} name="age" id="outlined-age-simple" style={{width:'100%'}} /> }>
@@ -138,14 +147,14 @@ function UsponForm() {
             </MuiPickersUtilsProvider>
             <AutocompleteSelect
               id="partneri"
-              label="Partneri"
+              label="Partner"
               value={values.partneri}
               onChange={handleAutoSelectChange('partneri')}
               className={classes.autocomplete}
               suggestions={partneriSuggestions}
               placeholder="Odaberite partnera"
-              helperText="ako ste penjali u troje dodjte oba partnera"
             />
+            <Typography variant="caption" className={classes.caption}>ako ste penjali u troje dodjte oba partnera</Typography>
             <FormControl component="fieldset" className={classes.radioGroupControl}>
               <FormLabel component="legend"  className={classes.radioGroupLabel}>Mjesto u navezu</FormLabel>
               <RadioGroup
