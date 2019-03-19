@@ -53,7 +53,7 @@ return <ImageUploader
     fileSizeError=' je prevelika slika'
     fileTypeError=' nije podržani tip slike'
     maxFileSize={5242880}
-    buttonClassName={classes.container}
+    className={classes.container}
     buttonClassName={classes.root}
 />;
 }
