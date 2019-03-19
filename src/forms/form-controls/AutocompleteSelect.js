@@ -156,7 +156,7 @@ const components = {
   ValueContainer,
 };
 
-function AutocompleteSelect({label, placeholder, onChange, value, suggestions, className}) {
+function AutocompleteSelect({label, placeholder, onChange, value, suggestions, className, helperText}) {
 
   const theme = useTheme();
   const classes = useStyles();
@@ -182,6 +182,7 @@ function AutocompleteSelect({label, placeholder, onChange, value, suggestions, c
             InputLabelProps: {
                 shrink: true,
             },
+            helperText: helperText,
         }}
         options={suggestions}
         components={components}

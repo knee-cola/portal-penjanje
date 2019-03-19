@@ -34,6 +34,7 @@ const useStyles = makeStyles(theme => ({
   },
   tipUsponaControl: {
     marginTop: '1em',
+    width: '100%'
   },
   radioGroupControl: {
     marginTop: '1em',
@@ -99,8 +100,10 @@ function UsponForm() {
               className={classes.autocomplete}
               suggestions={smjeroviSuggestions}
               placeholder="Odaberite penjani smjer"
+              helperText="ako ste u usponu kombinirali više smjerova dodajte ih sve"
             />
-            <FormControl variant="outlined" className={classes.tipUsponaControl}  style={{width:'100%'}}>
+
+            <FormControl variant="outlined" className={classes.tipUsponaControl}>
               <InputLabel ref={inputLabelRef} htmlFor="outlined-age-simple">Tip uspona</InputLabel>
               <Select value={values.tipUspona} onChange={handleChange('tipUspona')} input={ <OutlinedInput labelWidth={labelWidth} name="age" id="outlined-age-simple" style={{width:'100%'}} /> }>
                 <MenuItem value=""></MenuItem>
@@ -140,7 +143,8 @@ function UsponForm() {
               onChange={handleAutoSelectChange('partneri')}
               className={classes.autocomplete}
               suggestions={partneriSuggestions}
-              placeholder="Odaberite jednog ili više partnera"
+              placeholder="Odaberite partnera"
+              helperText="ako ste penjali u troje dodjte oba partnera"
             />
             <FormControl component="fieldset" className={classes.radioGroupControl}>
               <FormLabel component="legend"  className={classes.radioGroupLabel}>Mjesto u navezu</FormLabel>
@@ -166,7 +170,7 @@ function UsponForm() {
                 rows="4"
                 className={classes.textField}
                 margin="normal"
-                helperText="ovaj tekst be biti prikazan i u javnom post-u"
+                helperText="ovaj tekst će biti prikazan i u javnom post-u"
                 variant="outlined"
             />
             <FormControlLabel
