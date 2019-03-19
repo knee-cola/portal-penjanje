@@ -7,7 +7,7 @@ import 'date-fns';  // provides the most comprehensive, yet simple and consisten
 import DateFnsUtils from '@date-io/date-fns'; // Abstraction over common javascript date management libraries.
 import { FormControlLabel, Switch, Checkbox, Button, Radio, RadioGroup, FormLabel, FormControl, Select, OutlinedInput, MenuItem, InputLabel, Fade, Typography } from '@material-ui/core';
 import AutocompleteSelect from './form-controls/AutocompleteSelect';
-import { smjerovi, penjaci, tipoviUspona } from '../data-store/DataStore';
+import { smjerovi, penjaci, tipoviUspona, mjestoUNavezu } from '../data-store/DataStore';
 
 const useStyles = makeStyles(theme => ({
   form: {
@@ -30,15 +30,21 @@ const useStyles = makeStyles(theme => ({
     display: 'block',
   },
   radioGroup: {
-    flexDirection: 'row'
-  },
-  tipUsponaControl: {
-    marginTop: '1em',
-    width: '100%'
+    //flexDirection: 'column'
   },
   radioGroupControl: {
     marginTop: '1em',
     marginLeft: 10,
+  },
+  radioOption: {
+    padding: '8px 5px 8px 12px', // elementi su bili previše razmaknuti
+  },
+  radioGroupLabel: {
+    marginBottom: 8,
+  },
+  tipUsponaControl: {
+    marginTop: '1em',
+    width: '100%'
   },
   autocomplete: {
     marginTop: '2em'
@@ -150,8 +156,8 @@ function UsponForm() {
               placeholder="Odaberite partnera"
             />
             <Typography variant="caption" className={classes.caption}>ako ste penjali u troje dodjte oba partnera</Typography>
-            <FormControl component="fieldset" className={classes.radioGroupControl}>
-              <FormLabel component="legend"  className={classes.radioGroupLabel}>Mjesto u navezu</FormLabel>
+            <FormControl component="fieldset"className={classes.radioGroupControl}>
+              <FormLabel component="legend" className={classes.radioGroupLabel}>Mjesto u navezu</FormLabel>
               <RadioGroup
                 aria-label="Mjesto u navezu"
                 name="mjestoUNavezu"
@@ -160,9 +166,7 @@ function UsponForm() {
                 onChange={handleChange}
                 variant="outlined"
               >
-                <FormControlLabel value="svePrvi" control={<Radio color="primary" />} label="sve kao prvi" />
-                <FormControlLabel value="sveDrugi" control={<Radio color="primary" />} label="sve kao drugi" />
-                <FormControlLabel value="naizmjenicno" control={<Radio color="primary" />} label="naizmjenično" />
+                { mjestoUNavezu.map(({id,label}) => <FormControlLabel value={id+''} control={<Radio className={classes.radioOption} color="primary" />} label={label} key={id} />) }
               </RadioGroup>
             </FormControl>
             <TextField

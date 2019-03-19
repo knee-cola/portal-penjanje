@@ -116,6 +116,12 @@ export const tipoviUspona = [
     { id:7, label: 'pristup na vrh' },
 ];
 
+export const mjestoUNavezu = [
+    { id:1, label:'sve kao prvi' },
+    { id:2, label:'sve kao drugi' },
+    { id:3, label:'naizmjenično' },
+];
+
 /**
  * Vraća polje svih uspona u kojima je zadana osoba sudjelovala
  * @param {*} myNick nick od osobe čije partnere tražimo
