@@ -104,6 +104,18 @@ export const usponi = [
     },
 ];
 
+export const tipoviUspona = [
+    { id:0, label: '-' },
+    { id:9, label: 'kratki sportski smjer' },
+    { id:2, label: 'dugački sportski smjer' },
+    { id:1, label: 'alpinistički uspon u suhoj stijeni' },
+    { id:4, label: 'alpinistički uspon u zimskim uvjetima' },
+    { id:3, label: 'zimski alpnistički uspon' },
+    { id:5, label: 'smrznuti slap' },
+    { id:6, label: 'alpinistički skijaški spust' },
+    { id:7, label: 'pristup na vrh' },
+];
+
 /**
  * Vraća polje svih uspona u kojima je zadana osoba sudjelovala
  * @param {*} myNick nick od osobe čije partnere tražimo

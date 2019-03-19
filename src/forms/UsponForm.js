@@ -7,7 +7,7 @@ import 'date-fns';  // provides the most comprehensive, yet simple and consisten
 import DateFnsUtils from '@date-io/date-fns'; // Abstraction over common javascript date management libraries.
 import { FormControlLabel, Switch, Checkbox, Button, Radio, RadioGroup, FormLabel, FormControl, Select, OutlinedInput, MenuItem, InputLabel, Fade, Typography } from '@material-ui/core';
 import AutocompleteSelect from './form-controls/AutocompleteSelect';
-import { smjerovi, penjaci } from '../data-store/DataStore';
+import { smjerovi, penjaci, tipoviUspona } from '../data-store/DataStore';
 
 const useStyles = makeStyles(theme => ({
   form: {
@@ -115,12 +115,7 @@ function UsponForm() {
             <FormControl variant="outlined" className={classes.tipUsponaControl}>
               <InputLabel ref={inputLabelRef} htmlFor="outlined-age-simple">Tip uspona</InputLabel>
               <Select value={values.tipUspona} onChange={handleChange('tipUspona')} input={ <OutlinedInput labelWidth={labelWidth} name="age" id="outlined-age-simple" style={{width:'100%'}} /> }>
-                <MenuItem value=""></MenuItem>
-                <MenuItem value="kratskiSportski">kratki sportski smjer</MenuItem>
-                <MenuItem value="dugiSportski">dugi sportski smjer</MenuItem>
-                <MenuItem value="dugiKlasicni">dugi klasični smjer</MenuItem>
-                <MenuItem value="dugiZimski">dugi zimski smjer</MenuItem>
-                <MenuItem value="zimskiSlap">slap - ledno penjanje</MenuItem>
+                {tipoviUspona.map(({id, label}) => <MenuItem key={id} value={id}>{label}</MenuItem>)}
               </Select>
             </FormControl>
             <FormControlLabel
