@@ -63,7 +63,6 @@ export const smjerovi = [
         lokacijaSmjera:'Slovenija > Julijske alpe > Mala Mojstrovka',
         thumb: SkicaPripravniska,
     },
-
 ];
 
 export const usponi = [

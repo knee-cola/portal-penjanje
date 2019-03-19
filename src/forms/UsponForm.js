@@ -5,7 +5,9 @@ import TextField from '@material-ui/core/TextField';
 import { MuiPickersUtilsProvider, DatePicker } from 'material-ui-pickers';
 import 'date-fns';  // provides the most comprehensive, yet simple and consistent toolset for manipulating JavaScript dates
 import DateFnsUtils from '@date-io/date-fns'; // Abstraction over common javascript date management libraries.
-import { FormControlLabel, Switch, Checkbox, Button, Radio, RadioGroup, FormLabel, FormControl, Select, OutlinedInput, MenuItem, InputLabel } from '@material-ui/core';
+import { FormControlLabel, Switch, Checkbox, Button, Radio, RadioGroup, FormLabel, FormControl, Select, OutlinedInput, MenuItem, InputLabel, Fade } from '@material-ui/core';
+import AutocompleteSelect from './form-controls/AutocompleteSelect';
+import { smjerovi, penjaci } from '../data-store/DataStore';
 
 const useStyles = makeStyles(theme => ({
   form: {
@@ -30,13 +32,26 @@ const useStyles = makeStyles(theme => ({
   radioGroup: {
     flexDirection: 'row'
   },
-  tipUsponaCoontrol: {
+  tipUsponaControl: {
     marginTop: '1em',
   },
   radioGroupControl: {
     marginTop: '1em',
     marginLeft: 10,
+  },
+  autocomplete: {
+    marginTop: '2em'
   }
+}));
+
+const smjeroviSuggestions = smjerovi.map(({id, imeSmjera}) => ({
+  value: id,
+  label: imeSmjera,
+}));
+
+const partneriSuggestions = penjaci.map(({id, ime, prezime, nick}) => ({
+  value: id,
+  label: `${ime} ${prezime} (@${nick})`,
 }));
 
 function UsponForm() {
@@ -64,25 +79,28 @@ function UsponForm() {
     setValues({ ...values, [name]: event.target[propertyName] });
   };
 
+  const handleAutoSelectChange = (name) => eventData => {
+    setValues({ ...values, [name]: eventData });
+  };
+
   const handleDateChange = name => date => {
     setValues({ ...values, [name]: date });
   };
 
   return (
     <Fragment>
+      <Fade in={true} timeout={700}>
         <form noValidate autoComplete="off" className={classes.form}>
-            <TextField
-                required
-                id="smjer"
-                value={values.smjer}
-                label="Smjer"
-                className={classes.textField}
-                onChange={handleChange('smjer')}
-                margin="normal"
-                type="search"
-                variant="outlined"
-                />
-            <FormControl variant="outlined" className={classes.tipUsponaCoontrol}  style={{width:'100%'}}>
+            <AutocompleteSelect
+              id="smjer"
+              label="Smjer"
+              value={values.smjer}
+              onChange={handleAutoSelectChange('smjer')}
+              className={classes.autocomplete}
+              suggestions={smjeroviSuggestions}
+              placeholder="Odaberite penjani smjer"
+            />
+            <FormControl variant="outlined" className={classes.tipUsponaControl}  style={{width:'100%'}}>
               <InputLabel ref={inputLabelRef} htmlFor="outlined-age-simple">Tip uspona</InputLabel>
               <Select value={values.tipUspona} onChange={handleChange('tipUspona')} input={ <OutlinedInput labelWidth={labelWidth} name="age" id="outlined-age-simple" style={{width:'100%'}} /> }>
                 <MenuItem value=""></MenuItem>
@@ -115,15 +133,14 @@ function UsponForm() {
                     format={"dd.MM.yyyy."}
                 />
             </MuiPickersUtilsProvider>
-            <TextField
-                id="partneri"
-                value={values.partneri}
-                onChange={handleChange('partneri')}
-                required
-                label="Partneri"
-                className={classes.textField}
-                margin="normal"
-                variant="outlined"
+            <AutocompleteSelect
+              id="partneri"
+              label="Partneri"
+              value={values.partneri}
+              onChange={handleAutoSelectChange('partneri')}
+              className={classes.autocomplete}
+              suggestions={partneriSuggestions}
+              placeholder="Odaberite jednog ili više partnera"
             />
             <FormControl component="fieldset" className={classes.radioGroupControl}>
               <FormLabel component="legend"  className={classes.radioGroupLabel}>Mjesto u navezu</FormLabel>
@@ -165,6 +182,7 @@ function UsponForm() {
             />
             <Button variant="contained" color="primary" className={classes.button}>Spremi uspon</Button>
         </form>
+      </Fade>
     </Fragment>
   );
 }
