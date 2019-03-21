@@ -13,6 +13,6 @@
     bottom: 0px;
 }
 
-input {
+.nativeFileInput {
     display: none
 }

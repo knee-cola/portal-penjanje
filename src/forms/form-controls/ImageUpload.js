@@ -37,7 +37,7 @@ export default class ImageUpload extends Component {
             <Fragment>
                 <input
                     accept="image/jpeg"
-                    className={styles.input}
+                    className="nativeFileInput"
                     id="contained-button-file"
                     multiple
                     type="file"
@@ -51,5 +51,4 @@ export default class ImageUpload extends Component {
             </Fragment>
         );
     }
-
 }
