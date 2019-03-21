@@ -32,6 +32,7 @@ const useStyles = makeStyles(theme => ({
   button: {
     margin: '1em auto 2em auto',
     display: 'block',
+    padding: '1em 2em'
   },
   radioGroup: {
     //flexDirection: 'column'
