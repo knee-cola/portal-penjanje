@@ -1,5 +1,5 @@
 // based on https://github.com/corpix/material-ui-upload/blob/master/src/UploadPreview/index.js
-import React, {Component, Fragment} from 'react';
+import React, {Component} from 'react';
 import propTypes from 'prop-types';
 import ImageUpload from './ImageUpload';
 import { Fab, Icon, withStyles } from '@material-ui/core';
@@ -76,7 +76,7 @@ class ImageUploadPreview extends Component {
     };
 
     constructor(props) {
-        super();
+        super(props);
         this.lastKey = 0;
         this.state = {items: props.initialItems};
         this.classes = props.classes;
@@ -116,7 +116,7 @@ class ImageUploadPreview extends Component {
                 }
                 </div>
                 <div className={classes.ButtonContainer}>
-                    <ImageUpload onFileLoad={this.onFileLoad} />
+                    <ImageUpload onFileLoad={this.onFileLoad} buttonLabel={this.props.buttonLabel} />
                 </div>
             </div>
         );

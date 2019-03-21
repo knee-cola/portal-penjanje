@@ -71,7 +71,7 @@ const partneriSuggestions = penjaci.map(({id, ime, prezime, nick}) => ({
   label: `${ime} ${prezime} (@${nick})`,
 }));
 
-function UsponForm() {
+function UsponForm({history}) {
   const classes = useStyles();
 
   const [labelWidth, setLabelWidth] = React.useState(0);
@@ -110,7 +110,7 @@ function UsponForm() {
   };
 
   const handleCreateSmjer = imeSmjera => {
-    console.warn('ovo još nije implementirano - treba prikazati formu za kreiranje novog smjera');
+    history.push('/novi-smjer/');
   }
 
 	//const onDrop = (pictureFiles, pictureDataURLs) => {
@@ -197,7 +197,7 @@ function UsponForm() {
             <Typography variant="caption" className={classes.caption}>ovaj tekst će biti prikazan i u javnom post-u</Typography>
             <ImageUploadPreview
                 title="Fotografije"
-                label="Dodaj"
+                buttonLabel="Dodaj sliku"
                 initialItems={values.pictures}
                 onChange={handlePicturesChange}
                 />

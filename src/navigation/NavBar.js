@@ -27,6 +27,9 @@ const NavBar = ({handleDrawerToggle, location:{pathname}}) => {
     case "/novi-uspon/":
       title = "Novi uspon";
       break;
+    case "/novi-smjer/":
+      title = "Novi smjer";
+      break;
     case "/moji-partneri/":
       title = "Moji partneri";
       break;

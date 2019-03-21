@@ -45,7 +45,7 @@ export default class ImageUpload extends Component {
                 />
                 <label htmlFor="contained-button-file">
                     <Button variant="contained" component="span" className={styles.FileInput}>
-                        Dodaj sliku
+                        {this.props.buttonLabel}
                     </Button>
                 </label>
             </Fragment>

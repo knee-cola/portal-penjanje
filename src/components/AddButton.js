@@ -21,7 +21,7 @@ const AddButton = ({history, classes}) => {
 //    }
 
     function noviUsponOnClick() {
-        history.push('/novi-uspon/')
+        history.push('/novi-uspon/');
     }
     
     return(

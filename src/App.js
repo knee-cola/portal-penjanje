@@ -10,6 +10,7 @@ import { Smjerovi } from './lists/Smjerovi';
 import UsponDetails from './details/UsponDetails';
 import { Grid, Paper, createMuiTheme, CssBaseline } from '@material-ui/core';
 import UsponForm from './forms/UsponForm';
+import SmjerForm from './forms/SmjerForm';
 import { ThemeProvider } from '@material-ui/styles';
 
 function App(props) {
@@ -40,6 +41,7 @@ function App(props) {
             <Grid item style={{width:'100%', maxWidth:400, paddingTop:54, paddingBottom: '1em', marginBottom: '1em'}} component={Paper} >
               <Route path="/" exact component={ZadnjePenjano} />
               <Route path="/novi-uspon/" exact component={UsponForm} />
+              <Route path="/novi-smjer/" exact component={SmjerForm} />
               <Route path="/usponi/:id/" component={UsponDetails} />
               <Route path="/smjerovi/" component={Smjerovi} />
               <Route path="/moji-usponi/" component={MojiUsponi} />
