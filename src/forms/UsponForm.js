@@ -8,7 +8,9 @@ import DateFnsUtils from '@date-io/date-fns'; // Abstraction over common javascr
 import { FormControlLabel, Switch, Checkbox, Button, Radio, RadioGroup, FormLabel, FormControl, Select, OutlinedInput, MenuItem, InputLabel, Fade, Typography } from '@material-ui/core';
 import AutocompleteSelect from './form-controls/AutocompleteSelect';
 import { smjerovi, penjaci, tipoviUspona, mjestoUNavezu } from '../data-store/DataStore';
-import StyledImageUploader from './form-controls/StyledImageUploader';
+// import StyledImageUploader from './form-controls/StyledImageUploader';
+// import UploadPreview from 'material-ui-upload/UploadPreview';
+import ImageUploadPreview from './form-controls/ImageUploadPreview';
 
 
 const useStyles = makeStyles(theme => ({
@@ -102,13 +104,17 @@ function UsponForm() {
     setValues({ ...values, [name]: date });
   };
 
+  const handlePicturesChange = items => {
+    setValues({ ...values, pictures: items });
+  };
+
   const handleCreateSmjer = imeSmjera => {
     console.warn('ovo još nije implementirano - treba prikazati formu za kreiranje novog smjera');
   }
 
-	const onDrop = (pictureFiles, pictureDataURLs) => {
-		setValues({ pictures: values.pictures.concat(pictureFiles) });
-  }
+	//const onDrop = (pictureFiles, pictureDataURLs) => {
+	//	setValues({ pictures: values.pictures.concat(pictureFiles) });
+  //}
 
   return (
     <Fragment>
@@ -188,6 +194,14 @@ function UsponForm() {
                 helperText="ovaj tekst će biti prikazan i u javnom post-u"
                 variant="outlined"
             />
+            <FormControl variant="outlined" component="fieldset">
+              <ImageUploadPreview
+                  title="Fotografije"
+                  label="Dodaj"
+                  initialItems={values.pictures}
+                  onChange={handlePicturesChange}
+                  />
+            </FormControl>
             <FormControlLabel
                 className={classes.checkbox}
                 control={
@@ -199,8 +213,6 @@ function UsponForm() {
                 }
                 label='objavi javno na stranici "Zadnje penjano"'
             />
-            <StyledImageUploader onDrop={onDrop} />
-
             <Button variant="contained" color="primary" className={classes.button}>Spremi uspon</Button>
         </form>
       </Fade>
