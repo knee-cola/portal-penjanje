@@ -11,15 +11,22 @@ export default class ImageUpload extends Component {
         this.onInputChange = this.onInputChange.bind(this);
     }
 
-    onInputChange(e) {
+    onInputChange(changeEvent) {
         const onFileLoad = this.props.onFileLoad || ((e) => undefined);
+        const target = changeEvent.target;
 
-        [...e.target.files]
+        // ovo nije polje, pa ga moram pretvoriti kako bih mogao pozivati `filter`
+        [...target.files]
             .filter(file => file.type.match(this.props.fileTypeRegex) !== null)
             .forEach(
                 (file) => {
                     let reader = new FileReader();
-                    reader.onload = (e) => onFileLoad(e, file);
+                    reader.onload = (loadEvent) => {
+                        onFileLoad(loadEvent, file);
+                        // ako ne resetiram vrijednost tada
+                        // <input> neće pokrenuti `onChange` ako 2x za redom pokušam učitati istu sliku
+                        target.value = null;
+                    }
                     reader.readAsDataURL(file);
                 }
             );

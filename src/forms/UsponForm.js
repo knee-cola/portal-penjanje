@@ -191,17 +191,15 @@ function UsponForm() {
                 rows="4"
                 className={classes.textField}
                 margin="normal"
-                helperText="ovaj tekst će biti prikazan i u javnom post-u"
                 variant="outlined"
             />
-            <FormControl variant="outlined" component="fieldset">
-              <ImageUploadPreview
-                  title="Fotografije"
-                  label="Dodaj"
-                  initialItems={values.pictures}
-                  onChange={handlePicturesChange}
-                  />
-            </FormControl>
+            <Typography variant="caption" className={classes.caption}>ovaj tekst će biti prikazan i u javnom post-u</Typography>
+            <ImageUploadPreview
+                title="Fotografije"
+                label="Dodaj"
+                initialItems={values.pictures}
+                onChange={handlePicturesChange}
+                />
             <FormControlLabel
                 className={classes.checkbox}
                 control={

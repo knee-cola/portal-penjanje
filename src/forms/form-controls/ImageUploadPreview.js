@@ -1,11 +1,63 @@
 // based on https://github.com/corpix/material-ui-upload/blob/master/src/UploadPreview/index.js
 import React, {Component, Fragment} from 'react';
 import propTypes from 'prop-types';
-import styles from './ImageUploadPreview.css';
 import ImageUpload from './ImageUpload';
-import { CardHeader, CardContent, Card, CardActions, Fab, Icon } from '@material-ui/core';
+import { Fab, Icon, withStyles } from '@material-ui/core';
 
-export default class ImageUploadPreview extends Component {
+const useStyles = theme => {
+    const borderColor = theme.palette.type === 'light' ? 'rgba(0, 0, 0, 0.23)' : 'rgba(255, 255, 255, 0.23)';
+  
+    return {
+      root: {
+        borderRadius: theme.shape.borderRadius,
+        borderStyle: 'solid',
+        borderWidth: 1,
+        padding:'1em',
+        borderColor,
+        marginTop: '1.2em',
+        '&:hover': {
+          borderColor: theme.palette.text.primary,
+          // Reset on touch devices, it doesn't add specificity
+          '@media (hover: none)': {
+            borderColor,
+          },
+        },
+      },
+      PreviewContainer: {
+        display: 'flex',
+        flexWrap: 'wrap',
+      },
+      ButtonContainer: {
+        display:'block',
+        marginTop:'1em',
+        textAlign:'right'
+      },
+      ImageContainer: {
+          position: 'relative',
+          boxSizing: 'border-box',
+          flex: '1 0 200px',
+          maxHeight: 250,
+          overflow: 'hidden',
+          borderStyle: 'solid',
+          borderWidth: 1,
+          borderColor,
+      },
+      Image: {
+          verticalAlign: 'top',
+          maxWidth: '100%',
+          minWidth: '100%',
+          width: '100%',
+      },
+      RemoveItem: {
+          //color: 'red',
+          backgroundColor: 'white',
+          position: 'absolute',
+          bottom: 10,
+          right: 10,
+      }
+    }
+};
+class ImageUploadPreview extends Component {
 
     static defaultProps = {
         title: '',
@@ -27,6 +79,7 @@ export default class ImageUploadPreview extends Component {
         super();
         this.lastKey = 0;
         this.state = {items: props.initialItems};
+        this.classes = props.classes;
     };
 
     onFileLoad = (e, file) => {
@@ -36,12 +89,6 @@ export default class ImageUploadPreview extends Component {
         this.props.onChange(items);
     };
 
-//    onRemoveAllClick = (e) => {
-//        let items = {};
-//        this.setState({items});
-//        this.props.onChange(items);
-//    };
-//
     onRemoveClick = (key2remove) => (e) => {
         let items = this.state.items.filter(({key}) => key !== key2remove);
         this.setState({items});
@@ -49,23 +96,31 @@ export default class ImageUploadPreview extends Component {
     };
 
     render() {
+        const classes = this.classes;
+
         return (
-            <Fragment>
+            <div className={classes.root}>
+                <div className={classes.PreviewContainer}>
                 {
                     this.state.items.map(({key, imageData}) => 
-                    <div key={key} className={styles.PreviewContainer}>
-                        <img src={imageData} className={styles.Image} alt="" />
+                    <div key={key} className={classes.ImageContainer}>
+                        <img src={imageData} className={classes.Image} alt="" />
                         <Fab
-                            className={styles.RemoveItem}
+                            className={classes.RemoveItem}
                             size="small"
                             onClick={this.onRemoveClick(key)}
                             >
-                            <Icon>remove</Icon>
+                            <Icon>close</Icon>
                         </Fab>
                     </div>)
                 }
-                <ImageUpload onFileLoad={this.onFileLoad} />
-            </Fragment>
+                </div>
+                <div className={classes.ButtonContainer}>
+                    <ImageUpload onFileLoad={this.onFileLoad} />
+                </div>
+            </div>
         );
     };
 }
+
+export default withStyles(useStyles)(ImageUploadPreview);
