@@ -133,8 +133,17 @@ function UsponForm({history}) {
             />
             <Typography variant="caption" className={classes.caption}>ako ste u usponu kombinirali više smjerova dodajte ih sve</Typography>
             <FormControl variant="outlined" className={classes.tipUsponaControl}>
-              <InputLabel ref={inputLabelRef} htmlFor="outlined-age-simple">Tip uspona</InputLabel>
-              <Select value={values.tipUspona} onChange={handleChange('tipUspona')} input={ <OutlinedInput labelWidth={labelWidth} name="age" id="outlined-age-simple" style={{width:'100%'}} /> }>
+              <InputLabel ref={inputLabelRef} htmlFor="tip-uspona">Tip uspona</InputLabel>
+              <Select value={values.tipUspona}
+                onChange={handleChange('tipUspona')}
+                input={
+                  <OutlinedInput
+                    labelWidth={labelWidth}
+                    name="age"
+                    id="tip-uspona"
+                    style={{width:'100%'}} />
+                }
+              >
                 {tipoviUspona.map(({id, label}) => <MenuItem key={id} value={id}>{label}</MenuItem>)}
               </Select>
             </FormControl>

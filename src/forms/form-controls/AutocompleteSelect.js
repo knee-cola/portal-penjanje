@@ -158,7 +158,7 @@ const components = {
   ValueContainer,
 };
 
-function AutocompleteSelect({label, placeholder, onChange, value, suggestions, className, helperText, onCreateOption}) {
+function AutocompleteSelect({label, placeholder, onChange, value, suggestions, className, helperText, onCreateOption, isMulti, isClearable}) {
 
   const theme = useTheme();
   const classes = useStyles();
@@ -191,9 +191,9 @@ function AutocompleteSelect({label, placeholder, onChange, value, suggestions, c
         value={value}
         onChange={onChange}
         placeholder={placeholder}
-        isMulti
+        isMulti={isMulti}
         isSearchable
-        isClearable={false}
+        isClearable={isClearable}
         menuPlacement='auto'// 'auto' will flip when there isn't enough space below the control
         hideSelectedOptions // ne dopuštam da ista opcije bude 2x dodana
         formatCreateLabel={inputValue=>`kreiraj ${label.toLowerCase()} "${inputValue}"`}
