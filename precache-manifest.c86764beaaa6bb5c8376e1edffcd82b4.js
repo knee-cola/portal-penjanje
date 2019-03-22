@@ -4,7 +4,7 @@ self.__precacheManifest = [
     "url": "/portal-penjanje/static/media/grapa.423a722c.jpg"
   },
   {
-    "revision": "013397a25bfa7252bd3a",
+    "revision": "17f27f4c7e0a8ec27422",
     "url": "/portal-penjanje/static/css/main.eaf5452b.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = [
     "url": "/portal-penjanje/static/js/runtime~main.182d5f93.js"
   },
   {
-    "revision": "72fc705e688d09fcf385",
-    "url": "/portal-penjanje/static/js/2.45227307.chunk.js"
+    "revision": "004dcad1e23320ddadc5",
+    "url": "/portal-penjanje/static/js/2.4b2e373f.chunk.js"
   },
   {
     "revision": "a72232f0fa925db5b3c34e666c7070ec",
@@ -32,8 +32,8 @@ self.__precacheManifest = [
     "url": "/portal-penjanje/static/media/velebitas.cad2dcbd.jpg"
   },
   {
-    "revision": "013397a25bfa7252bd3a",
-    "url": "/portal-penjanje/static/js/main.d46a5160.chunk.js"
+    "revision": "17f27f4c7e0a8ec27422",
+    "url": "/portal-penjanje/static/js/main.51ed81a9.chunk.js"
   },
   {
     "revision": "08f6dda56a5ac508efc8418e72a7ce45",
@@ -64,7 +64,7 @@ self.__precacheManifest = [
     "url": "/portal-penjanje/static/media/baseline-person-24px.25cabb35.svg"
   },
   {
-    "revision": "3c56e977f40259ce72fb29f99f388cf5",
+    "revision": "3f7c65bbd3aa512f7e02d4f7ed8a6e2a",
     "url": "/portal-penjanje/index.html"
   }
 ];
